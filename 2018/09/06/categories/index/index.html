@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="计算机启动过程">
+<meta name="description" content="写点随笔？嗯~~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机开机">
-<meta property="og:url" content="http://blog.52sifang.cn/2018/09/06/capture_start/index.html">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://blog.52sifang.cn/2018/09/06/categories/index/index.html">
 <meta property="og:site_name" content="司金辉的个人博客">
-<meta property="og:description" content="计算机启动过程">
+<meta property="og:description" content="写点随笔？嗯~~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-06T12:24:35.902Z">
+<meta property="og:updated_time" content="2018-09-06T12:17:05.400Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机开机">
-<meta name="twitter:description" content="计算机启动过程">
+<meta name="twitter:title" content="categories">
+<meta name="twitter:description" content="写点随笔？嗯~~">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.52sifang.cn/2018/09/06/capture_start/"/>
+  <link rel="canonical" href="http://blog.52sifang.cn/2018/09/06/categories/index/"/>
 
 
 
 
 
-  <title>计算机开机 | 司金辉的个人博客</title>
+  <title>categories | 司金辉的个人博客</title>
   
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.52sifang.cn/2018/09/06/capture_start/">
+    <link itemprop="mainEntityOfPage" href="http://blog.52sifang.cn/2018/09/06/categories/index/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="司金辉">
@@ -325,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">计算机开机</h1>
+          <h1 class="post-title" itemprop="name headline">categories</h1>
         
 
         <div class="post-meta">
@@ -337,7 +337,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-06T14:19:16+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-06T20:17:05+08:00">
                 2018-09-06
               </time>
             
@@ -380,62 +380,7 @@
       
 
       
-        <hr>
-<h3 id="计算机启动过程"><a href="#计算机启动过程" class="headerlink" title="计算机启动过程"></a>计算机启动过程</h3><hr>
-<a id="more"></a>
-<blockquote>
-<p>BIOS简介:</p>
-</blockquote>
-<ul>
-<li><p>第一步: 按下电源键</p>
-<ul>
-<li>按下电源键的时候电源开始向主板和cpu供电,一开始电压不稳定,主板控制芯片会一直向cpu发送reset信号,让cpu初始化</li>
-<li>一般这个过程非常短暂,几乎在一瞬间电压就会稳定,控制芯片撤掉reset信号.但按下reset的时候,这个过程就特别明显….</li>
-</ul>
-</li>
-<li><p>第二步: BIOS硬件自检–检测关键性设备 </p>
-<ul>
-<li>BIOS开始上电自检,这个地方会主要会检测内存,显卡,要是检测不通过,蜂鸣器会报告检测到的错误,一般用滴的长短和次数来表示错误的类型</li>
-<li>这个地方检测的内存地址只有640k.</li>
-</ul>
-</li>
-<li>第三步: 屏幕亮,检测显卡BOIS<ul>
-<li>这里系统BIOS会读取显卡的BIOS启动显卡,此时屏幕开始亮起,会简单的显示显卡的一些参数,</li>
-<li>要是不亮,就…</li>
-</ul>
-</li>
-<li>第四步: 显示BIOS自己的界面<ul>
-<li>会显示BIOS日期,主板芯片组型号,主板识别码,主板厂商,等一堆东西.</li>
-</ul>
-</li>
-<li>第五步: 仔细检测cpu和内存<ul>
-<li>会把检测到的cpu类型,主频打印在屏幕上</li>
-<li>下面会跟着开始检测所有内存信息</li>
-</ul>
-</li>
-<li>第六步: 检测标准硬件设备<ul>
-<li>检测硬盘 cd-rom 软驱 并行接口,和串行接口</li>
-</ul>
-</li>
-<li>第七步: 检测外围设备<ul>
-<li>检测那些可以即插即用的东西,比如usb接口的U盘什么的.检测到后为每一个检测到的设备分配dma.i/o接口等</li>
-<li>每检测到一个设备,都会把信息打印在屏幕上</li>
-</ul>
-</li>
-<li>第八步: BIOS清屏,重新显示系统配置表<ul>
-<li>会在系统上方显示一个概括性的配置列表,列出了系统安装的各种各种标准硬件设备以及他们使用的资源和相关参数.</li>
-</ul>
-</li>
-<li>第九步: 检测硬件更新<ul>
-<li>这里的硬件指的是类似外接内存,声卡,网卡,显卡,等设备有没有被更换,如果更换了,就更新一下存储,方面系统读取配置.</li>
-</ul>
-</li>
-<li>第十步: 根据启动顺序,启动引导<ul>
-<li>这一步,才开始引导操作系统,系统BIOS读取并执行硬盘的主引导记录,从分区表中找到第一个活动分区,然后读取并执行分区的引导记录.分区的引导记录负责读取并执行系统</li>
-</ul>
-</li>
-</ul>
-
+        
       
     </div>
     
@@ -488,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/05/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/09/06/capture_start/" rel="next" title="计算机开机">
+                <i class="fa fa-chevron-left"></i> 计算机开机
               </a>
             
           </div>
@@ -497,10 +442,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/06/categories/index/" rel="prev" title="categories">
-                categories <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -557,17 +498,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -636,22 +568,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机启动过程"><span class="nav-text">计算机启动过程</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

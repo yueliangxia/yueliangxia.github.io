@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.52sifang.cn/"/>
-  <updated>2018-09-06T12:24:35.902Z</updated>
+  <updated>2018-09-06T12:17:05.400Z</updated>
   <id>http://blog.52sifang.cn/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>categories</title>
+    <link href="http://blog.52sifang.cn/2018/09/06/categories/index/"/>
+    <id>http://blog.52sifang.cn/2018/09/06/categories/index/</id>
+    <published>2018-09-06T12:17:05.000Z</published>
+    <updated>2018-09-06T12:17:05.400Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>计算机开机</title>
