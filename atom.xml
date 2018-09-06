@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>司金辉的个人博客</title>
+  
+  <subtitle>一个混吃等死的程序员！</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.52sifang.cn/"/>
+  <updated>2018-09-06T12:24:35.902Z</updated>
+  <id>http://blog.52sifang.cn/</id>
+  
+  <author>
+    <name>司金辉</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机开机</title>
+    <link href="http://blog.52sifang.cn/2018/09/06/capture_start/"/>
+    <id>http://blog.52sifang.cn/2018/09/06/capture_start/</id>
+    <published>2018-09-06T06:19:16.000Z</published>
+    <updated>2018-09-06T12:24:35.902Z</updated>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;h3 id=&quot;计算机启动过程&quot;&gt;&lt;a href=&quot;#计算机启动过程&quot; class=&quot;headerlink&quot; title=&quot;计算机启动过程&quot;&gt;&lt;/a&gt;计算机启动过程&lt;/h3&gt;&lt;hr&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://blog.52sifang.cn/2018/09/05/hello-world/"/>
+    <id>http://blog.52sifang.cn/2018/09/05/hello-world/</id>
+    <published>2018-09-05T13:46:53.976Z</published>
+    <updated>2018-09-06T12:40:28.226Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
