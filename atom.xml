@@ -5,9 +5,9 @@
   <subtitle>一个混吃等死的程序员！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.52sifang.cn/"/>
+  <link href="https://blog.52sifang.cn/"/>
   <updated>2018-09-06T12:17:05.400Z</updated>
-  <id>http://blog.52sifang.cn/</id>
+  <id>https://blog.52sifang.cn/</id>
   
   <author>
     <name>司金辉</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>categories</title>
-    <link href="http://blog.52sifang.cn/2018/09/06/categories/index/"/>
-    <id>http://blog.52sifang.cn/2018/09/06/categories/index/</id>
+    <link href="https://blog.52sifang.cn/2018/09/06/categories/index/"/>
+    <id>https://blog.52sifang.cn/2018/09/06/categories/index/</id>
     <published>2018-09-06T12:17:05.000Z</published>
     <updated>2018-09-06T12:17:05.400Z</updated>
     
@@ -32,8 +32,8 @@
   
   <entry>
     <title>计算机开机</title>
-    <link href="http://blog.52sifang.cn/2018/09/06/capture_start/"/>
-    <id>http://blog.52sifang.cn/2018/09/06/capture_start/</id>
+    <link href="https://blog.52sifang.cn/2018/09/06/capture_start/"/>
+    <id>https://blog.52sifang.cn/2018/09/06/capture_start/</id>
     <published>2018-09-06T06:19:16.000Z</published>
     <updated>2018-09-06T12:24:35.902Z</updated>
     
@@ -49,8 +49,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://blog.52sifang.cn/2018/09/05/hello-world/"/>
-    <id>http://blog.52sifang.cn/2018/09/05/hello-world/</id>
+    <link href="https://blog.52sifang.cn/2018/09/05/hello-world/"/>
+    <id>https://blog.52sifang.cn/2018/09/05/hello-world/</id>
     <published>2018-09-05T13:46:53.976Z</published>
     <updated>2018-09-06T12:40:28.226Z</updated>
     
