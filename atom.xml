@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-09-07T11:48:33.722Z</updated>
+  <updated>2018-09-07T12:46:43.718Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ceshi</title>
+    <link href="https://blog.52sifang.cn/2018/09/07/ceshi/"/>
+    <id>https://blog.52sifang.cn/2018/09/07/ceshi/</id>
+    <published>2018-09-07T12:46:08.000Z</published>
+    <updated>2018-09-07T12:46:43.718Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;用来测试快速一键命令&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+      <category term="测试" scheme="https://blog.52sifang.cn/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机开机</title>
