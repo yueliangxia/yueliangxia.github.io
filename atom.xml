@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-09-06T14:29:17.363Z</updated>
+  <updated>2018-09-07T02:40:39.976Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.52sifang.cn/2018/09/06/capture_start/"/>
     <id>https://blog.52sifang.cn/2018/09/06/capture_start/</id>
     <published>2018-09-06T06:19:16.000Z</published>
-    <updated>2018-09-06T14:29:17.363Z</updated>
+    <updated>2018-09-07T02:40:39.976Z</updated>
     
     <summary type="html">
     
@@ -29,6 +29,8 @@
 &lt;h3 id=&quot;计算机启动过程&quot;&gt;&lt;a href=&quot;#计算机启动过程&quot; class=&quot;headerlink&quot; title=&quot;计算机启动过程&quot;&gt;&lt;/a&gt;计算机启动过程&lt;/h3&gt;&lt;hr&gt;
     
     </summary>
+    
+      <category term="前端" scheme="https://blog.52sifang.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
   </entry>
