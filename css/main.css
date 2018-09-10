@@ -1993,7 +1993,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9effff;
+  background: #c7e2ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3101,15 +3101,9 @@ hr {
     text-align: center;
   }
 }
-.container {
-  background-color: rgba(0,0,0,0.75);
-}
 .header-inner {
   padding-top: 0px;
   padding-bottom: 0px;
-}
-.site-meta {
-  background-image: linear-gradient(90deg, #f79533 0%, #f37055 15%, #ef4e7b 30%, #a166ab 44%, #5073b8 58%, #1098ad 72%, #07b39b 86%, #6dba82 100%);
 }
 .brand {
   background-color: rgba(255,255,255,0);
