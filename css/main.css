@@ -1993,7 +1993,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c7e2ff;
+  background: #7cff2f;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3101,6 +3101,9 @@ hr {
     text-align: center;
   }
 }
+.container {
+  background-color: rgba(255,251,240,0.75);
+}
 .header-inner {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -3136,7 +3139,7 @@ hr {
 }
 .sidebar {
   box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.5);
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(255,251,240,0.75);
 }
 .sidebar-inner {
   margin-top: 30px;
