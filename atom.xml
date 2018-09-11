@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-09-11T06:30:08.637Z</updated>
+  <updated>2018-09-11T12:03:43.160Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用twisted异步写入</title>
+    <link href="https://blog.52sifang.cn/2018/09/11/use_twisted/"/>
+    <id>https://blog.52sifang.cn/2018/09/11/use_twisted/</id>
+    <published>2018-09-11T11:43:00.000Z</published>
+    <updated>2018-09-11T12:03:43.160Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文&quot;&gt;&lt;a href=&quot;#异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文&quot; class=&quot;headerlink&quot; title=&quot;异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文&quot;&gt;&lt;/a&gt;异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文&lt;/h2&gt;&lt;p&gt;@本文相关源码: &lt;a href=&quot;https://github.com/Loveyueliang/XieYuYing.git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/Loveyueliang/XieYuYing.git&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="爬虫" scheme="https://blog.52sifang.cn/categories/%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="scrapy,mysql" scheme="https://blog.52sifang.cn/tags/scrapy-mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>关于51job的爬虫说明</title>

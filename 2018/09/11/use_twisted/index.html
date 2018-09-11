@@ -101,7 +101,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, bolg" />
+  <meta name="keywords" content="scrapy,mysql," />
 
 
 
@@ -114,16 +114,20 @@
 
 
 
-<meta name="description" content="写点随笔？嗯~~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="&amp;ensp;&amp;emsp;司金辉的个人博客">
-<meta property="og:url" content="https://blog.52sifang.cn/archives/index.html">
+<meta name="description" content="异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文@本文相关源码: https://github.com/Loveyueliang/XieYuYing.git">
+<meta name="keywords" content="scrapy,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用twisted异步写入">
+<meta property="og:url" content="https://blog.52sifang.cn/2018/09/11/use_twisted/index.html">
 <meta property="og:site_name" content="&amp;ensp;&amp;emsp;司金辉的个人博客">
-<meta property="og:description" content="写点随笔？嗯~~">
+<meta property="og:description" content="异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文@本文相关源码: https://github.com/Loveyueliang/XieYuYing.git">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://blog.52sifang.cn/2018/09/11/use_twisted/index.html">
+<meta property="og:updated_time" content="2018-09-11T12:03:43.160Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&amp;ensp;&amp;emsp;司金辉的个人博客">
-<meta name="twitter:description" content="写点随笔？嗯~~">
+<meta name="twitter:title" content="用twisted异步写入">
+<meta name="twitter:description" content="异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文@本文相关源码: https://github.com/Loveyueliang/XieYuYing.git">
+<meta name="twitter:image" content="https://blog.52sifang.cn/2018/09/11/use_twisted/index.html">
 
 
 
@@ -153,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.52sifang.cn/archives/"/>
+  <link rel="canonical" href="https://blog.52sifang.cn/2018/09/11/use_twisted/"/>
 
 
 
 
 
-  <title>归档 | &ensp;&emsp;司金辉的个人博客</title>
+  <title>用twisted异步写入 | &ensp;&emsp;司金辉的个人博客</title>
   
 
 
@@ -178,7 +182,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
 	<a href="https://github.com/loveyueliang" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
@@ -318,222 +322,314 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.52sifang.cn/2018/09/11/use_twisted/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小 司 机">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="&ensp;&emsp;司金辉的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">用twisted异步写入</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-11T19:43:00+08:00">
+                2018-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 5 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/09/11/use_twisted/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/09/11/use_twisted/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+		  
+			<span class="post-meta-divider">|</span>
+			<span id="busuanzi_value_page_pv"></span>次阅读
+		  
+		  
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  419 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="/ " rel="gallery_cjlxo96830008r8ubg1tw1zgh"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="/ " itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
           </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/11/use_twisted/" itemprop="url">
-              
-                <span itemprop="name">用twisted异步写入</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-11T19:43:00+08:00"
-              content="2018-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        </div>
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/10/test_pic/" itemprop="url">
-              
-                <span itemprop="name">关于51job的爬虫说明</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-10T17:51:00+08:00"
-              content="2018-09-10" >
-          09-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文"><a href="#异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文" class="headerlink" title="异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文"></a>异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文</h2><p>@本文相关源码: <a href="https://github.com/Loveyueliang/XieYuYing.git" target="_blank" rel="noopener">https://github.com/Loveyueliang/XieYuYing.git</a></p>
+<a id="more"></a>
+<h3 id="首先需要先导入模块"><a href="#首先需要先导入模块" class="headerlink" title="首先需要先导入模块"></a>首先需要先导入模块</h3><pre><code>from twisted.enterprise import adbapi
+</code></pre><h3 id="接着在自定义的pipeline里面重构from-settings函数"><a href="#接着在自定义的pipeline里面重构from-settings函数" class="headerlink" title="接着在自定义的pipeline里面重构from_settings函数"></a>接着在自定义的pipeline里面重构from_settings函数</h3><pre><code>@classmethod
+def from_settings(cls, settings):
+    &quot;&quot;&quot;
+    这个函数名称是固定的，当爬虫启动的时候，scrapy会自动调用这些函数，加载配置数据。
+    &quot;&quot;&quot;
+</code></pre><h3 id="创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。"><a href="#创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。" class="headerlink" title="创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。"></a>创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。</h3><pre><code># 参数1：操作数据库的包名
+        # 参数2：链接数据库的参数
+        db_connect_pool = adbapi.ConnectionPool(&apos;pymysql&apos;, **params)
+</code></pre><h3 id="初始化这个类的对象"><a href="#初始化这个类的对象" class="headerlink" title="初始化这个类的对象"></a>初始化这个类的对象</h3><pre><code>obj = cls(db_connect_pool)
+</code></pre><h3 id="在process-item这个函数里执行数据的多线程写入操作"><a href="#在process-item这个函数里执行数据的多线程写入操作" class="headerlink" title="在process_item这个函数里执行数据的多线程写入操作"></a>在process_item这个函数里执行数据的多线程写入操作</h3><pre><code># 参数1：在线程中被执行的sql语句
+# 参数2：要保存的数据
+result = self.dbpool.runInteraction(self.insert, item)
+# 给result绑定一个回调函数，用于监听错误信息
+result.addErrback(self.error)
+</code></pre><ul>
+<li><p>定义一个打印错误信息的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def error(self, reason):</span><br><span class="line">    print(&apos;--------&apos;, reason)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义一个执行插入语句的函数,用twisted的好处其中一点就是不用一步步的手动提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def insert(self, cursor, item):</span><br><span class="line">    insert_sql = &quot;INSERT INTO bole(bole_title, bole_date, bole_tag, bole_content, bole_dz, bole_sc, bole_pl, bole_img_src) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)&quot;</span><br><span class="line">    cursor.execute(insert_sql, (item[&apos;bole_title&apos;], item[&apos;bole_date&apos;], item[&apos;bole_tag&apos;], item[&apos;bole_content&apos;], item[&apos;bole_dz&apos;], item[&apos;bole_sc&apos;], item[&apos;bole_pl&apos;], item[&apos;bole_img_path&apos;]))</span><br><span class="line">    # 不需要commit()</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/07/xieyuying/" itemprop="url">
-              
-                <span itemprop="name">xieyuying</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-07T20:46:08+08:00"
-              content="2018-09-07" >
-          09-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/06/capture_start/" itemprop="url">
-              
-                <span itemprop="name">计算机开机</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-06T14:19:16+08:00"
-              content="2018-09-06" >
-          09-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/05/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-05T21:46:53+08:00"
-              content="2018-09-05" >
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+	<div>
+      
+        ﻿
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/09/11/use_twisted/">用twisted异步写入</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 小 司 机 的个人博客">小 司 机</a></p>
+  <p><span>发布时间:</span>2018年09月11日 - 19:09</p>
+  <p><span>最后更新:</span>2018年09月11日 - 20:09</p>
+  <p><span>原始链接:</span><a href="/2018/09/11/use_twisted/" title="用twisted异步写入">https://blog.52sifang.cn/2018/09/11/use_twisted/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.52sifang.cn/2018/09/11/use_twisted/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div>
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/images/alipay.png" alt="小 司 机 抱拳了,老铁!"/>
+        <p>抱拳了,老铁!</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/scrapy-mysql/" rel="tag"># scrapy,mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/test_pic/" rel="next" title="关于51job的爬虫说明">
+                <i class="fa fa-chevron-left"></i> 关于51job的爬虫说明
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -541,6 +637,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -563,8 +668,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -699,6 +813,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文"><span class="nav-text">异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先需要先导入模块"><span class="nav-text">首先需要先导入模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接着在自定义的pipeline里面重构from-settings函数"><span class="nav-text">接着在自定义的pipeline里面重构from_settings函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。"><span class="nav-text">创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化这个类的对象"><span class="nav-text">初始化这个类的对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在process-item这个函数里执行数据的多线程写入操作"><span class="nav-text">在process_item这个函数里执行数据的多线程写入操作</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -849,6 +979,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
