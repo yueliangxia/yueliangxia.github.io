@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-09-11T12:03:43.160Z</updated>
+  <updated>2018-09-11T12:13:00.277Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://blog.52sifang.cn/2018/09/11/use_twisted/"/>
     <id>https://blog.52sifang.cn/2018/09/11/use_twisted/</id>
     <published>2018-09-11T11:43:00.000Z</published>
-    <updated>2018-09-11T12:03:43.160Z</updated>
+    <updated>2018-09-11T12:13:00.277Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文&quot;&gt;&lt;a href=&quot;#异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文&quot; class=&quot;headerlink&quot; title=&quot;异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文&quot;&gt;&lt;/a&gt;异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文&lt;/h2&gt;&lt;p&gt;@本文相关源码: &lt;a href=&quot;https://github.com/Loveyueliang/XieYuYing.git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/Loveyueliang/XieYuYing.git&lt;/a&gt;&lt;/p&gt;
+      &lt;h2 id=&quot;异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文&quot;&gt;&lt;a href=&quot;#异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文&quot; class=&quot;headerlink&quot; title=&quot;异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文&quot;&gt;&lt;/a&gt;异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文&lt;/h2&gt;&lt;p&gt;@本文相关源码: &lt;a href=&quot;https://github.com/Loveyueliang/yuke/tree/master/9-11/jobbolespider&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/Loveyueliang/yuke/tree/master/9-11/jobbolespider&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
