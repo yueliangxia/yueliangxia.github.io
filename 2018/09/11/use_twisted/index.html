@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="&amp;ensp;&amp;emsp;司金辉的个人博客">
 <meta property="og:description" content="异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文@本文相关源码: https://github.com/Loveyueliang/yuke/tree/master/9-11/jobbolespider">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-11T12:25:16.422Z">
+<meta property="og:updated_time" content="2018-09-11T12:31:35.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用twisted异步写入">
 <meta name="twitter:description" content="异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文@本文相关源码: https://github.com/Loveyueliang/yuke/tree/master/9-11/jobbolespider">
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  423 字
+                  403 字
                 </span>
               
 
@@ -489,10 +489,10 @@ result = self.dbpool.runInteraction(self.insert, item)
 result.addErrback(self.error)
 </code></pre><ul>
 <li><p>定义一个打印错误信息的函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def error(self, reason):</span><br><span class="line">    print(&apos;--------&apos;, reason)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">error</span><span class="params">(self, reason)</span>:</span></span><br><span class="line">    print(<span class="string">'--------'</span>, reason)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>定义一个执行插入语句的函数,用twisted的好处其中一点就是不用一步步的手动提交</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def insert(self, cursor, item):</span><br><span class="line">    insert_sql = &quot;INSERT INTO bole(bole_title, bole_date, bole_tag, bole_content, bole_dz, bole_sc, bole_pl, bole_img_src) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)&quot;</span><br><span class="line">    cursor.execute(insert_sql, (item[&apos;bole_title&apos;], item[&apos;bole_date&apos;], item[&apos;bole_tag&apos;], item[&apos;bole_content&apos;], item[&apos;bole_dz&apos;], item[&apos;bole_sc&apos;], item[&apos;bole_pl&apos;], item[&apos;bole_img_path&apos;]))</span><br><span class="line">    # 不需要commit()</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, cursor, item)</span>:</span></span><br><span class="line">    insert_sql = <span class="string">"INSERT INTO bole(bole_title, bole_date, bole_tag, bole_content, bole_dz, bole_sc, bole_pl, bole_img_src) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"</span></span><br><span class="line">    cursor.execute(insert_sql, (item[<span class="string">'bole_title'</span>], item[<span class="string">'bole_date'</span>], item[<span class="string">'bole_tag'</span>], item[<span class="string">'bole_content'</span>], item[<span class="string">'bole_dz'</span>], item[<span class="string">'bole_sc'</span>], item[<span class="string">'bole_pl'</span>], item[<span class="string">'bole_img_path'</span>]))</span><br><span class="line">    <span class="comment"># 不需要commit()</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
