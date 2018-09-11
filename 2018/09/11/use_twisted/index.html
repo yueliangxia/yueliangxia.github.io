@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="&amp;ensp;&amp;emsp;司金辉的个人博客">
 <meta property="og:description" content="异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文@本文相关源码: https://github.com/Loveyueliang/yuke/tree/master/9-11/jobbolespider">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-11T12:31:35.819Z">
+<meta property="og:updated_time" content="2018-09-11T14:51:18.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用twisted异步写入">
 <meta name="twitter:description" content="异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文@本文相关源码: https://github.com/Loveyueliang/yuke/tree/master/9-11/jobbolespider">
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  403 字
+                  395 字
                 </span>
               
 
@@ -472,22 +472,12 @@
       
         <h2 id="异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文"><a href="#异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文" class="headerlink" title="异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文"></a>异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文</h2><p>@本文相关源码: <a href="https://github.com/Loveyueliang/yuke/tree/master/9-11/jobbolespider" target="_blank" rel="noopener">https://github.com/Loveyueliang/yuke/tree/master/9-11/jobbolespider</a></p>
 <a id="more"></a>
-<h3 id="首先需要先导入模块"><a href="#首先需要先导入模块" class="headerlink" title="首先需要先导入模块"></a>首先需要先导入模块</h3><pre><code>from twisted.enterprise import adbapi
-</code></pre><h3 id="接着在自定义的pipeline里面重构from-settings函数"><a href="#接着在自定义的pipeline里面重构from-settings函数" class="headerlink" title="接着在自定义的pipeline里面重构from_settings函数"></a>接着在自定义的pipeline里面重构from_settings函数</h3><pre><code>@classmethod
-def from_settings(cls, settings):
-    &quot;&quot;&quot;
-    这个函数名称是固定的，当爬虫启动的时候，scrapy会自动调用这些函数，加载配置数据。
-    &quot;&quot;&quot;
-</code></pre><h3 id="创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。"><a href="#创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。" class="headerlink" title="创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。"></a>创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。</h3><pre><code># 参数1：操作数据库的包名
-        # 参数2：链接数据库的参数
-        db_connect_pool = adbapi.ConnectionPool(&apos;pymysql&apos;, **params)
-</code></pre><h3 id="初始化这个类的对象"><a href="#初始化这个类的对象" class="headerlink" title="初始化这个类的对象"></a>初始化这个类的对象</h3><pre><code>obj = cls(db_connect_pool)
-</code></pre><h3 id="在process-item这个函数里执行数据的多线程写入操作"><a href="#在process-item这个函数里执行数据的多线程写入操作" class="headerlink" title="在process_item这个函数里执行数据的多线程写入操作"></a>在process_item这个函数里执行数据的多线程写入操作</h3><pre><code># 参数1：在线程中被执行的sql语句
-# 参数2：要保存的数据
-result = self.dbpool.runInteraction(self.insert, item)
-# 给result绑定一个回调函数，用于监听错误信息
-result.addErrback(self.error)
-</code></pre><ul>
+<h3 id="首先需要先导入模块"><a href="#首先需要先导入模块" class="headerlink" title="首先需要先导入模块"></a>首先需要先导入模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> twisted.enterprise <span class="keyword">import</span> adbapi</span><br></pre></td></tr></table></figure>
+<h3 id="接着在自定义的pipeline里面重构from-settings函数"><a href="#接着在自定义的pipeline里面重构from-settings函数" class="headerlink" title="接着在自定义的pipeline里面重构from_settings函数"></a>接着在自定义的pipeline里面重构from_settings函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@classmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">from_settings</span><span class="params">(cls, settings)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    这个函数名称是固定的，当爬虫启动的时候，scrapy会自动调用这些函数，加载配置数据。</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。"><a href="#创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。" class="headerlink" title="创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。"></a>创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数1：操作数据库的包名</span></span><br><span class="line"><span class="comment"># 参数2：链接数据库的参数</span></span><br><span class="line">db_connect_pool = adbapi.ConnectionPool(<span class="string">'pymysql'</span>, **params)</span><br></pre></td></tr></table></figure>
+<h3 id="初始化这个类的对象"><a href="#初始化这个类的对象" class="headerlink" title="初始化这个类的对象"></a>初始化这个类的对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj = cls(db_connect_pool)</span><br></pre></td></tr></table></figure>
+<h3 id="在process-item这个函数里执行数据的多线程写入操作"><a href="#在process-item这个函数里执行数据的多线程写入操作" class="headerlink" title="在process_item这个函数里执行数据的多线程写入操作"></a>在process_item这个函数里执行数据的多线程写入操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数1：在线程中被执行的sql语句</span></span><br><span class="line"><span class="comment"># 参数2：要保存的数据</span></span><br><span class="line">result = self.dbpool.runInteraction(self.insert, item)</span><br><span class="line"><span class="comment"># 给result绑定一个回调函数，用于监听错误信息</span></span><br><span class="line">result.addErrback(self.error)</span><br></pre></td></tr></table></figure>
+<ul>
 <li><p>定义一个打印错误信息的函数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">error</span><span class="params">(self, reason)</span>:</span></span><br><span class="line">    print(<span class="string">'--------'</span>, reason)</span><br></pre></td></tr></table></figure>
 </li>
@@ -513,7 +503,7 @@ result.addErrback(self.error)
   <p><span>本文标题:</span><a href="/2018/09/11/use_twisted/">用twisted异步写入</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 小 司 机 的个人博客">小 司 机</a></p>
   <p><span>发布时间:</span>2018年09月11日 - 19:09</p>
-  <p><span>最后更新:</span>2018年09月11日 - 20:09</p>
+  <p><span>最后更新:</span>2018年09月11日 - 22:09</p>
   <p><span>原始链接:</span><a href="/2018/09/11/use_twisted/" title="用twisted异步写入">https://blog.52sifang.cn/2018/09/11/use_twisted/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.52sifang.cn/2018/09/11/use_twisted/"  aria-label="复制成功！"></i></span>
   </p>
