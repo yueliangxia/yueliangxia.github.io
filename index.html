@@ -431,7 +431,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  145 字
+                  584 字
                 </span>
               
 
@@ -447,7 +447,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -479,9 +479,28 @@
 <h3 id="proxy-pool-项目地址：https-github-com-jhao104-proxy-pool-git"><a href="#proxy-pool-项目地址：https-github-com-jhao104-proxy-pool-git" class="headerlink" title="proxy_pool:    @项目地址：https://github.com/jhao104/proxy_pool.git"></a>proxy_pool:    @项目地址：<a href="https://github.com/jhao104/proxy_pool.git" target="_blank" rel="noopener">https://github.com/jhao104/proxy_pool.git</a></h3><ul>
 <li>1.它将国内的代理IP网站都进行了爬取;</li>
 <li>2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数据库redis中;</li>
-<li>3.会定期将数据库中的代理IP拿出来检测,默认是五分钟检查一次。</li>
+<li>3.会定期将数据库中的代理IP拿出来检测,失效的IP从数据库中删除。</li>
+<li>4.支持扩展</li>
 </ul>
+<hr>
+<h3 id="练习项目"><a href="#练习项目" class="headerlink" title="练习项目:"></a>练习项目:</h3><pre><code>1. 解决登陆问题；
+2. 使用downloadmiddleware, ua, 代理、池;
+3. 使用itemloader完成数据的提取和解析；
+4. 提取所有问题的信息：标题、点赞数、评论数、关注者数量、浏览数量；将列表页数据单独
+    保存至一个表中；
+5. 提取每一个问题的所有答案：回答用户、回答内容、回答时间、回答
+    点赞数、回答评论数；将所有的答案保存至另外一个表中；
+6. 数据库的写入要求使用异步Twisted框架完成；
+</code></pre><h4 id="首先需要先设置好代理IP和请求头-也就是自定义下载中间件"><a href="#首先需要先设置好代理IP和请求头-也就是自定义下载中间件" class="headerlink" title="首先需要先设置好代理IP和请求头,也就是自定义下载中间件"></a>首先需要先设置好代理IP和请求头,也就是自定义下载中间件</h4><h4 id="然后根据需求知道要先获得登录后的Cookie"><a href="#然后根据需求知道要先获得登录后的Cookie" class="headerlink" title="然后根据需求知道要先获得登录后的Cookie"></a>然后根据需求知道要先获得登录后的Cookie</h4><pre><code>* 这个设置在middlewares里
+* cookie登录需要设置成键值对的方式
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">request.cookies = &#123;</span><br><span class="line">           <span class="string">'_xsrf'</span>:<span class="string">'BKORzjqUj35ax0DdrwKnVn25RkNRaahM'</span>,</span><br><span class="line">           <span class="string">'_zap'</span>:<span class="string">'4dc36192-e267-44d1-b8f4-074822456258'</span>,</span><br><span class="line">           <span class="string">'d_c0'</span>:<span class="string">"AFAlC-xzMw6PTlUrgV6b_Bu4DtkilyXo-Z4=|1536751108"</span>,</span><br><span class="line">           <span class="string">'capsion_ticket'</span>:<span class="string">"2|1:0|10:1536756874|14:capsion_ticket|44:MDRlODI3NDk5ZjhlNGRlOThiNzdiN2Q1NGM3OWEyNjQ=|7b1b74e68e3ccc4440577f394f8e1ded1efc6a5bca537a1a0d459b71d36877c2"</span>,</span><br><span class="line">           <span class="string">'q_c1'</span>:<span class="string">'cd8e72dfa9384e70af51bc5c90b10f8a|1536751149000|1536751149000'</span>,</span><br><span class="line">           <span class="string">'l_n_c'</span>:<span class="string">'1'</span>,</span><br><span class="line">           <span class="string">'l_cap_id'</span>:<span class="string">"NGRjMmM4OTZkOTBlNGQ0ZTg2MTQ2YTk4YTNiODBhMGI=|1536756854|ae8c593677b5d5d7301941fa6e133c0c4f4f1022"</span>,</span><br><span class="line">           <span class="string">'r_cap_id'</span>:<span class="string">"YTM4YTAyZjQ2ZDAwNDhiNjlmYTYxNmFmODU2NTMwMWU=|1536756854|b164129500acaa359cfc585c4c1d5d32b8529bf2"</span>,</span><br><span class="line">           <span class="string">'cap_id'</span>:<span class="string">"MjQ0ZWZhOGQwZDlhNGQ5MGE0ZWRlMTNlMWYyZDcwMWQ=|1536756854|a8f854ab2430dbb1dc0f0ee8b9cf89e9f316b556"</span>,</span><br><span class="line">           <span class="string">'n_c'</span>:<span class="string">'1'</span>,</span><br><span class="line">           <span class="string">'z_c0'</span>:<span class="string">"2|1:0|10:1536756886|4:z_c0|92:Mi4xU2JyYkF3QUFBQUFBVUNVTDdITXpEaVlBQUFCZ0FsVk5sbHFHWEFEMGZOMm5qMmItXzJlUElVWEpCWHZGWkFzMkt3|8e0843029fb42283f58a63ec8765ba96c10b936e8775f14293cf3b12501e0f13"</span>,</span><br><span class="line">           <span class="string">'tgw_l7_route'</span>:<span class="string">'53d8274aa4a304c1aeff9b999b2aaa0a'</span></span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="登录成功之后-获取问题详情"><a href="#登录成功之后-获取问题详情" class="headerlink" title="登录成功之后,获取问题详情,"></a>登录成功之后,获取问题详情,</h3><pre><code>* 1.发现获取详情的网址是xhr请求,其中一条为https://www.zhihu.com/api/v3/feed/topstory?action_feed=True&amp;limit=7&amp;session_token=b36c08db4577ef8d563788f5337b283c&amp;action=down&amp;after_id=13&amp;desktop=true
+* 2.经解析参数发现session_tokon这个参数,每次启动项目都会不一样,所以尝试在主页面的response中寻找.最终解析该值得代码为:
+    <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data = response.xpath(<span class="string">'//div[@id="data"]/@data-state'</span>).extract_first(<span class="string">''</span>)</span><br><span class="line">pattern = re.compile(<span class="string">r'sessionToken":"(.*?)"'</span>,re.S)</span><br><span class="line">session_token = re.findall(pattern,data)</span><br><span class="line">print(session_token)</span><br></pre></td></tr></table></figure>
 
+* 3.参数after_id的值为每一次加7,所以设置range循环,步进为7
+    * yield回调解析json数据的函数.暂时就写到这儿
+</code></pre>
           
         
       
@@ -1037,7 +1056,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://yueliang666.vicp.io/blog/180910/E3Al55f3i7.png" rel="gallery_cjlyvu36j000208ubqpy5u7hn"
+                 href="http://yueliang666.vicp.io/blog/180910/E3Al55f3i7.png" rel="gallery_cjlz9e14r0008y4ubh5q9usao"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://yueliang666.vicp.io/blog/180910/E3Al55f3i7.png" itemprop="contentUrl"/>
               </a>
@@ -1441,7 +1460,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://oz2tkq0zj.bkt.clouddn.com/17-11-9/52323298.jpg" rel="gallery_cjlyvu36d000008ubk8444mc3"
+                 href="http://oz2tkq0zj.bkt.clouddn.com/17-11-9/52323298.jpg" rel="gallery_cjlz9e14o0006y4ub1mvqsez0"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://oz2tkq0zj.bkt.clouddn.com/17-11-9/52323298.jpg" itemprop="contentUrl"/>
               </a>
