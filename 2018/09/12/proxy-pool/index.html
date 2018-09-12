@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="代理IP: 1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的. 2.收费的代理IP,讯代理. 3.爬取国外的网站,VPN代理服务器.  proxy_pool:    @项目地址：https://github.com/jhao104/proxy_pool.git 1.它将国内的代理IP网站都进行了爬取; 2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数">
+<meta name="description" content="代理IP: 1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的. 2.收费的代理IP,讯代理. 3.爬取国外的网站,VPN代理服务器.  proxy_pool:    @项目地址：https://github.com/jhao104/proxy_pool.git 1.它将国内的代理IP网站都进行了爬取; 2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数据">
 <meta name="keywords" content="scrapy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="proxy_pool">
 <meta property="og:url" content="https://blog.52sifang.cn/2018/09/12/proxy-pool/index.html">
 <meta property="og:site_name" content="&amp;ensp;&amp;emsp;司金辉的个人博客">
-<meta property="og:description" content="代理IP: 1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的. 2.收费的代理IP,讯代理. 3.爬取国外的网站,VPN代理服务器.  proxy_pool:    @项目地址：https://github.com/jhao104/proxy_pool.git 1.它将国内的代理IP网站都进行了爬取; 2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数">
+<meta property="og:description" content="代理IP: 1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的. 2.收费的代理IP,讯代理. 3.爬取国外的网站,VPN代理服务器.  proxy_pool:    @项目地址：https://github.com/jhao104/proxy_pool.git 1.它将国内的代理IP网站都进行了爬取; 2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数据">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-12T14:56:27.760Z">
+<meta property="og:updated_time" content="2018-09-12T14:58:49.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="proxy_pool">
-<meta name="twitter:description" content="代理IP: 1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的. 2.收费的代理IP,讯代理. 3.爬取国外的网站,VPN代理服务器.  proxy_pool:    @项目地址：https://github.com/jhao104/proxy_pool.git 1.它将国内的代理IP网站都进行了爬取; 2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数">
+<meta name="twitter:description" content="代理IP: 1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的. 2.收费的代理IP,讯代理. 3.爬取国外的网站,VPN代理服务器.  proxy_pool:    @项目地址：https://github.com/jhao104/proxy_pool.git 1.它将国内的代理IP网站都进行了爬取; 2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数据">
 
 
 
@@ -470,8 +470,7 @@
       
 
       
-        <a id="more"></a>
-<h3 id="代理IP"><a href="#代理IP" class="headerlink" title="代理IP:"></a>代理IP:</h3><ul>
+        <h3 id="代理IP"><a href="#代理IP" class="headerlink" title="代理IP:"></a>代理IP:</h3><ul>
 <li>1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的.</li>
 <li>2.收费的代理IP,讯代理.</li>
 <li>3.爬取国外的网站,VPN代理服务器.</li>
@@ -483,6 +482,7 @@
 <li>4.支持扩展</li>
 </ul>
 <hr>
+<a id="more"></a>
 <h3 id="练习项目"><a href="#练习项目" class="headerlink" title="练习项目:"></a>练习项目:</h3><pre><code>1. 解决登陆问题；
 2. 使用downloadmiddleware, ua, 代理、池;
 3. 使用itemloader完成数据的提取和解析；
@@ -499,7 +499,7 @@
 <h3 id="登录成功之后-获取问题详情"><a href="#登录成功之后-获取问题详情" class="headerlink" title="登录成功之后,获取问题详情,"></a>登录成功之后,获取问题详情,</h3><ul>
 <li>1.发现获取详情的网址是xhr请求,其中一条为<a href="https://www.zhihu.com/api/v3/feed/topstory?action_feed=True&amp;limit=7&amp;session_token=b36c08db4577ef8d563788f5337b283c&amp;action=down&amp;after_id=13&amp;desktop=true" target="_blank" rel="noopener">https://www.zhihu.com/api/v3/feed/topstory?action_feed=True&amp;limit=7&amp;session_token=b36c08db4577ef8d563788f5337b283c&amp;action=down&amp;after_id=13&amp;desktop=true</a></li>
 <li><p>2.经解析参数发现session_tokon这个参数,每次启动项目都会不一样,所以尝试在主页面的response中寻找.最终解析该值得代码为:</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data = response.xpath(<span class="string">'//div[@id="data"]/@data-state'</span>).extract_first(<span class="string">''</span>)</span><br><span class="line">pattern = re.compile(<span class="string">r'sessionToken":"(.*?)"'</span>,re.S)</span><br><span class="line">session_token = re.findall(pattern,data)</span><br><span class="line">print(session_token)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data = response.xpath(<span class="string">'//div[@id="data"]/@data-state'</span>).extract_first(<span class="string">''</span>)</span><br><span class="line">pattern = re.compile(<span class="string">r'sessionToken":"(.*?)"'</span>,re.S)</span><br><span class="line">session_token = re.findall(pattern,data)</span><br><span class="line">print(session_token)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>3.参数after_id的值为每一次加7,所以设置range循环,步进为7</p>
 </li>
