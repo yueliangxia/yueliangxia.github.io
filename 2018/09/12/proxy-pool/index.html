@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="&amp;ensp;&amp;emsp;司金辉的个人博客">
 <meta property="og:description" content="代理IP: 1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的. 2.收费的代理IP,讯代理. 3.爬取国外的网站,VPN代理服务器.  proxy_pool: @项目地址：https://github.com/jhao104/proxy_pool.git  1.它将国内的代理IP网站都进行了爬取; 2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数据库r">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-13T07:18:53.283Z">
+<meta property="og:updated_time" content="2018-09-13T07:35:19.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="proxy_pool">
 <meta name="twitter:description" content="代理IP: 1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的. 2.收费的代理IP,讯代理. 3.爬取国外的网站,VPN代理服务器.  proxy_pool: @项目地址：https://github.com/jhao104/proxy_pool.git  1.它将国内的代理IP网站都进行了爬取; 2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数据库r">
@@ -536,10 +536,11 @@
 </li>
 </ul>
 <h3 id="关于遇到的一些错误"><a href="#关于遇到的一些错误" class="headerlink" title="关于遇到的一些错误"></a>关于遇到的一些错误</h3><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MySQLdb TypeError: %d format: a number <span class="keyword">is</span> required, <span class="keyword">not</span> str问题解决</span><br></pre></td></tr></table></figure>
+</code></pre><ul>
+<li>这个其实就是传参数的时候占位符填错了,一般都是因为传int类型时不需要用%d,直接用%s就搞定了,亲测成功~!</li>
+<li>还有一点就是最好要把str类型的占位符改成’%s’,就是带引号的这种,防止1146错误..</li>
+</ul>
 
-* 这个其实就是传参数的时候占位符填错了,一般都是因为传int类型时不需要用%d,直接用%s就搞定了,亲测成功~!
-* 还有一点就是最好要把str类型的占位符改成&apos;%s&apos;,就是带引号的这种,防止1146错误..
-</code></pre>
       
     </div>
     
@@ -945,8 +946,6 @@
   
 
 
-  
-
 
 
 
@@ -985,11 +984,6 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -1404,9 +1398,6 @@
 
   
 
-  
-  
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
 
   <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":true});</script>
