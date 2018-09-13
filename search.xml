@@ -12,11 +12,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F09%2F12%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[用twisted异步写入]]></title>
     <url>%2F2018%2F09%2F11%2Fuse_twisted%2F</url>
     <content type="text"><![CDATA[异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文@本文相关源码: https://github.com/Loveyueliang/yuke/tree/master/9-11/jobbolespider 首先需要先导入模块1from twisted.enterprise import adbapi 接着在自定义的pipeline里面重构from_settings函数12345@classmethoddef from_settings(cls, settings): """ 这个函数名称是固定的，当爬虫启动的时候，scrapy会自动调用这些函数，加载配置数据。 """ 创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。123# 参数1：操作数据库的包名# 参数2：链接数据库的参数db_connect_pool = adbapi.ConnectionPool('pymysql', **params) 初始化这个类的对象1obj = cls(db_connect_pool) 在process_item这个函数里执行数据的多线程写入操作12345# 参数1：在线程中被执行的sql语句# 参数2：要保存的数据result = self.dbpool.runInteraction(self.insert, item)# 给result绑定一个回调函数，用于监听错误信息result.addErrback(self.error) 定义一个打印错误信息的函数 12def error(self, reason): print('--------', reason) 定义一个执行插入语句的函数,用twisted的好处其中一点就是不用一步步的手动提交 1234def insert(self, cursor, item): insert_sql = "INSERT INTO bole(bole_title, bole_date, bole_tag, bole_content, bole_dz, bole_sc, bole_pl, bole_img_src) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)" cursor.execute(insert_sql, (item['bole_title'], item['bole_date'], item['bole_tag'], item['bole_content'], item['bole_dz'], item['bole_sc'], item['bole_pl'], item['bole_img_path'])) # 不需要commit()]]></content>

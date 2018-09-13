@@ -1992,7 +1992,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #580337;
+  background: #57fffe;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3260,7 +3260,7 @@ h2.about-title {
   user-select: none;
 }
 .site-author-name {
-  color: #000;
+  color: #67f0aa;
 }
 .sidebar-nav li {
   font-size: 15px;
