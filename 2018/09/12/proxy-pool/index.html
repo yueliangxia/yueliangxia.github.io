@@ -134,7 +134,7 @@
 <meta property="og:site_name" content="&amp;ensp;&amp;emsp;司金辉的个人博客">
 <meta property="og:description" content="代理IP: 1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的. 2.收费的代理IP,讯代理. 3.爬取国外的网站,VPN代理服务器.  proxy_pool: @项目地址：https://github.com/jhao104/proxy_pool.git  1.它将国内的代理IP网站都进行了爬取; 2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数据库r">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-13T07:35:19.595Z">
+<meta property="og:updated_time" content="2018-09-13T09:57:44.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="proxy_pool">
 <meta name="twitter:description" content="代理IP: 1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的. 2.收费的代理IP,讯代理. 3.爬取国外的网站,VPN代理服务器.  proxy_pool: @项目地址：https://github.com/jhao104/proxy_pool.git  1.它将国内的代理IP网站都进行了爬取; 2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数据库r">
@@ -533,12 +533,9 @@
 <li>这一点参数里有两个值offset=5&amp;limit=5这两个控制每次获取的评论数.暂时不需要更改</li>
 </ul>
 </li>
-<li><ol start="3">
-<li>include=data%5B*%5D这个参数,好像没个问题的也都不一样.<ul>
+<li>3.include=data%5B*%5D这个参数,好像没个问题的也都不一样.<ul>
 <li>关于这一点,参数里面需要这些东西的都是用[<em>]代替的,写出[</em>]也能正常获取评论</li>
 </ul>
-</li>
-</ol>
 </li>
 <li><p>4.scrapy获取的json数据我用的解析方式,这样就能获取到字典了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response_data = response.body.decode(<span class="string">'utf-8'</span>)</span><br><span class="line">json_data = json.loads(str(response_data))</span><br></pre></td></tr></table></figure>
@@ -547,8 +544,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">if</span> <span class="string">'updated_time'</span> <span class="keyword">in</span> data:</span><br><span class="line">	<span class="comment"># 有更新时间就获取更新时间</span></span><br><span class="line">	date = data.get(<span class="string">'updated_time'</span>,<span class="string">''</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	<span class="comment"># 没有就获取创建时间</span></span><br><span class="line">	date = data.get(<span class="string">'created_time'</span>,<span class="string">''</span>)</span><br><span class="line">timeArray = time.localtime(date)</span><br><span class="line">date = time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>, timeArray)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="关于遇到的一些错误"><a href="#关于遇到的一些错误" class="headerlink" title="关于遇到的一些错误"></a>关于遇到的一些错误</h3><pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MySQLdb TypeError: %d format: a number <span class="keyword">is</span> required, <span class="keyword">not</span> str问题解决</span><br></pre></td></tr></table></figure>
-</code></pre><ul>
+<h3 id="关于遇到的一些错误"><a href="#关于遇到的一些错误" class="headerlink" title="关于遇到的一些错误"></a>关于遇到的一些错误</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MySQLdb TypeError: %d format: a number <span class="keyword">is</span> required, <span class="keyword">not</span> str问题解决</span><br></pre></td></tr></table></figure>
+<ul>
 <li>这个其实就是传参数的时候占位符填错了,一般都是因为传int类型时不需要用%d,直接用%s就搞定了,亲测成功~!</li>
 <li>还有一点就是最好要把str类型的占位符改成’%s’,就是带引号的这种,防止1146错误..</li>
 </ul>
@@ -571,7 +568,7 @@
   <p><span>本文标题:</span><a href="/2018/09/12/proxy-pool/">proxy_pool</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 小 司 机 的个人博客">小 司 机</a></p>
   <p><span>发布时间:</span>2018年09月12日 - 14:09</p>
-  <p><span>最后更新:</span>2018年09月13日 - 15:09</p>
+  <p><span>最后更新:</span>2018年09月13日 - 17:09</p>
   <p><span>原始链接:</span><a href="/2018/09/12/proxy-pool/" title="proxy_pool">https://blog.52sifang.cn/2018/09/12/proxy-pool/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.52sifang.cn/2018/09/12/proxy-pool/"  aria-label="复制成功！"></i></span>
   </p>
