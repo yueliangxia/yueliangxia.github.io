@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-09-16T06:10:41.371Z</updated>
+  <updated>2018-09-16T09:36:06.485Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -17,22 +17,15 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>WeiBoSpider</title>
+    <title>新浪微博爬虫</title>
     <link href="https://blog.52sifang.cn/2018/09/14/WeiBoSpider/"/>
     <id>https://blog.52sifang.cn/2018/09/14/WeiBoSpider/</id>
     <published>2018-09-14T00:59:59.000Z</published>
-    <updated>2018-09-16T06:10:41.371Z</updated>
+    <updated>2018-09-16T09:36:06.485Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;关于发布时间转成统一格式的问题&quot;&gt;&lt;a href=&quot;#关于发布时间转成统一格式的问题&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;p&gt;爬取新浪微博时遇到的一些小问题汇总，但是由于现在还没有养成，报错就截图的好习惯，所以现在只能捡能想起来的先写点。&lt;/p&gt;
     
     </summary>
     
