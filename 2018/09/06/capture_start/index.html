@@ -487,7 +487,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://oz2tkq0zj.bkt.clouddn.com/17-11-9/52323298.jpg" rel="gallery_cjm1zxg83000bl4ubk2j6k6i8"
+                 href="http://oz2tkq0zj.bkt.clouddn.com/17-11-9/52323298.jpg" rel="gallery_cjm1zycpr0000ekubklczv48d"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://oz2tkq0zj.bkt.clouddn.com/17-11-9/52323298.jpg" itemprop="contentUrl"/>
               </a>
@@ -812,8 +812,8 @@
           
           
 			
-		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=370 src="//music.163.com/outchain/player?type=0&id=2408833644&auto=0&height=430"></iframe>
-		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=288 src="//music.163.com/outchain/player?type=0&id=2408833644&auto=0&height=430"></iframe>
+			
           
           
             <div class="links-of-blogroll motion-element links-of-blogroll-inline">
@@ -851,8 +851,32 @@
             </div>
           
 
-          
-
+          <div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("09/16/2018 12:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="������"+daysold+"��"+hrsold+"Сʱ"+minsold+"��"+seconds+"��";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
         </div>
       </section>
 
