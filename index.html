@@ -443,7 +443,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  97 字
+                  226 字
                 </span>
               
 
@@ -490,7 +490,7 @@
 <li>09月13日 22:33 (不是今天的)</li>
 </ul>
 </li>
-<li>现在考虑的是,分别格式化为时间戳,然后再从时间戳转换成要求的统一格式</li>
+<li>现在考虑的是,分别格式化为时间戳,然后再从时间戳转换成要求的统一格式<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_time</span><span class="params">(value)</span>:</span></span><br><span class="line">    value = value.split(<span class="string">' '</span>)[<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">    date = <span class="string">'no_time'</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">'分钟'</span> <span class="keyword">in</span> value[<span class="number">0</span>]:</span><br><span class="line">        time_stamp = time.time() - int(value[<span class="number">0</span>].split(<span class="string">'分钟'</span>)[<span class="number">0</span>]) * <span class="number">60</span></span><br><span class="line">        date = time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>, time.localtime(time_stamp))</span><br><span class="line">        <span class="keyword">return</span> date</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'今天'</span> <span class="keyword">in</span> value[<span class="number">0</span>]:</span><br><span class="line">        local_time = time.localtime()</span><br><span class="line">        time_string = <span class="string">"%s年%s月%s日 %s"</span>%(local_time.tm_year,local_time.tm_mon,local_time.tm_mday,value[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">        date = time.strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>, time.strptime(time_string, <span class="string">'%Y年%m月%d日 %H:%M'</span>))</span><br><span class="line">        <span class="keyword">return</span> date</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'月'</span> <span class="keyword">in</span> value[<span class="number">0</span>]:</span><br><span class="line">        local_time = time.localtime()</span><br><span class="line">        time_string = <span class="string">"%s年%s %s"</span> % (local_time.tm_year, value[<span class="number">0</span>], value[<span class="number">1</span>])</span><br><span class="line">        date = time.strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>, time.strptime(time_string, <span class="string">'%Y年%m月%d日 %H:%M'</span>))</span><br><span class="line">        <span class="keyword">return</span> date</span><br></pre></td></tr></table></figure></li>
 </ul>
 
           
