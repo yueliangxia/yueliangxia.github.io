@@ -134,7 +134,7 @@
 <meta property="og:site_name" content="&amp;ensp;&amp;emsp;司金辉的个人博客">
 <meta property="og:description" content="爬取新浪微博时遇到的一些小问题汇总，但是由于现在还没有养成，报错就截图的好习惯，所以现在只能捡能想起来的先写点。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-16T09:52:34.965Z">
+<meta property="og:updated_time" content="2018-09-16T09:56:49.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新浪微博爬虫">
 <meta name="twitter:description" content="爬取新浪微博时遇到的一些小问题汇总，但是由于现在还没有养成，报错就截图的好习惯，所以现在只能捡能想起来的先写点。">
@@ -492,7 +492,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> every_article <span class="keyword">in</span> page:</span><br><span class="line">	url = every_article.xpath(<span class="string">'div/a[@class="cc"]/@href'</span>).extract_first(<span class="string">''</span>)</span><br><span class="line">	<span class="keyword">yield</span> scrapy.Request(url=url,callback=self.parse_info)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改之后</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url_list = page.xpath(<span class="string">'div/a[@class="cc"]/@href'</span>).extract()</span><br><span class="line">   <span class="keyword">for</span> url <span class="keyword">in</span> url_list:</span><br><span class="line">       <span class="keyword">yield</span> scrapy.Request(url=url,callback=self.parse_info)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url_list = page.xpath(<span class="string">'div/a[@class="cc"]/@href'</span>).extract()</span><br><span class="line"><span class="keyword">for</span> url <span class="keyword">in</span> url_list:</span><br><span class="line">	<span class="keyword">yield</span> scrapy.Request(url=url,callback=self.parse_info)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
