@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>https://blog.52sifang.cn/2018/09/12/proxy-pool/</loc>
+    <lastmod>2018-09-17T12:31:34.669Z</lastmod>
+    <data>
+        <display>
+        <title>zhihu的一些评论</title>
+        <pubTime>2018-09-12T06:13:59.000Z</pubTime>
+        
+        <tag>scrapy</tag>
+         
+         
+           
+             
+              <breadCrumb title="爬虫" url="https://blog.52sifang.cn/categories/%E7%88%AC%E8%99%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://blog.52sifang.cn/2018/09/14/WeiBoSpider/</loc>
@@ -52,26 +72,6 @@
         <display>
         <title>关于51job的爬虫说明</title>
         <pubTime>2018-09-10T09:51:00.000Z</pubTime>
-        
-        <tag>scrapy</tag>
-         
-         
-           
-             
-              <breadCrumb title="爬虫" url="https://blog.52sifang.cn/categories/%E7%88%AC%E8%99%AB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.52sifang.cn/2018/09/12/proxy-pool/</loc>
-    <lastmod>2018-09-13T09:57:44.983Z</lastmod>
-    <data>
-        <display>
-        <title>proxy_pool</title>
-        <pubTime>2018-09-12T06:13:59.000Z</pubTime>
         
         <tag>scrapy</tag>
          
