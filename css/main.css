@@ -1996,7 +1996,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #96ad61;
+  background: #a87836;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3107,12 +3107,6 @@ hr {
 .header-inner {
   padding-top: 0px;
   padding-bottom: 0px;
-}
-body {
-  background: url("https://source.unsplash.com/collection/3136516/1920x1080");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
 }
 .main-inner {
   margin-top: 60px;
