@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-09-18T12:10:16.755Z</updated>
+  <updated>2018-09-18T12:30:52.400Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于此博客图床的使用</title>
+    <link href="https://blog.52sifang.cn/2018/09/18/graph-bed/"/>
+    <id>https://blog.52sifang.cn/2018/09/18/graph-bed/</id>
+    <published>2018-09-18T12:17:12.000Z</published>
+    <updated>2018-09-18T12:30:52.400Z</updated>
+    
+    <summary type="html">
+    
+      搜了好多文章，有各大网站图床的对比，在此说明一下我图床的挑选
+    
+    </summary>
+    
+    
+      <category term="图床" scheme="https://blog.52sifang.cn/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>新浪微博爬虫</title>
