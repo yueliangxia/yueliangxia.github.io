@@ -1996,7 +1996,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff6f34;
+  background: #ee240e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3104,12 +3104,22 @@ hr {
     text-align: center;
   }
 }
-.container {
-  background-color: rgba(255,255,255,0.25);
-}
 .header-inner {
   padding-top: 0px;
   padding-bottom: 0px;
+}
+body {
+  background: url("https://source.unsplash.com/1920x1080/?girl,pink");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+.main-inner {
+  margin-top: 60px;
+  padding: 60px 60px 60px 60px;
+  background: #fff;
+  opacity: 0.6;
+  min-height: 500px;
 }
 .post {
   margin-top: 60px;
