@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.52sifang.cn/about/index.html</loc>
+    
+    <lastmod>2018-09-19T12:54:12.446Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.52sifang.cn/404.html</loc>
     
     <lastmod>2018-09-19T08:39:58.971Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://blog.52sifang.cn/2018/09/11/use_twisted/</loc>
     
     <lastmod>2018-09-11T14:51:18.406Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.52sifang.cn/about/index.html</loc>
-    
-    <lastmod>2018-09-11T01:31:49.838Z</lastmod>
     
   </url>
   
