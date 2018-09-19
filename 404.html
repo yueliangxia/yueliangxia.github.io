@@ -1,86 +1,138 @@
 <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
- 
 <html xmlns="http://www.w3.org/1999/xhtml">
- 
 <head>
- 
-<meta charset="UTF-8" http-equiv="Content-Type" content="text/html; charset=utf-8">
- 
-<title>404-对不起！您访问的页面不存在</title>
- 
-<style type="text/css">
- 
 
-#background 
-{ 
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #211f1f; 
-    display:none\8;
-} 
-#background .bg-photo 
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    overflow: hidden;
-    -webkit-background-size: cover !important;
-    -moz-background-size: cover !important;
-    -o-background-size: cover !important;
-    background-size: cover !important;
-} 
+<link rel="stylesheet" href="404/css/main.css" type="text/css" media="screen, projection"> <!-- main stylesheet -->
+<link rel="stylesheet" type="text/css" media="all" href="404/css/tipsy.css"> <!-- Tipsy implementation -->
 
-#background .bg-photo-1 
-{ 
-    background: url('https://wx2.sinaimg.cn/large/0068ZTOjly1fvf68unop5j31hc0u0n7t.jpg') no-repeat center center;
-} 
+<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/ie8.css" />
+<![endif]-->
 
-#background-ie { 
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #211f1f;
-}
+<script type="text/javascript" src="404/scripts/jquery-1.7.2.min.js"></script> <!-- uiToTop implementation -->
+<script type="text/javascript" src="404/scripts/custom-scripts.js"></script>
+<script type="text/javascript" src="404/scripts/jquery.tipsy.js"></script> <!-- Tipsy -->
 
-<body bgcolor="#494949">
-<div id="background">
-<div class="bg-photo bg-photo-1" style="display: block;"></div>
+<script type="text/javascript">
+
+$(document).ready(function(){
+			
+	universalPreloader();
+						   
+});
+
+$(window).load(function(){
+
+	//remove Universal Preloader
+	universalPreloaderRemove();
+	
+	rotate();
+    dogRun();
+	dogTalk();
+	
+	//Tipsy implementation
+	$('.with-tooltip').tipsy({gravity: $.fn.tipsy.autoNS});
+						   
+});
+
+</script>
+
+
+<title>404 - Not found</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+
+<!-- Universal preloader -->
+<div id="universal-preloader">
+    <div class="preloader">
+        <img src="404/images/universal-preloader.gif" alt="universal-preloader" class="universal-preloader-preloader">
+    </div>
 </div>
+<!-- Universal preloader -->
 
-</style>
- 
-</head>
- 
- 
+<div id="wrapper">
+<!-- 404 graphic -->
+	<div class="graphic"></div>
+<!-- 404 graphic -->
+<!-- Not found text -->
+	<div class="not-found-text">
+    	<h1 class="not-found-text">File not found, sorry!</h1>
+    </div>
+<!-- Not found text -->
 
+<!-- search form -->
+<div class="search">
+	<form name="search" method="get" action="#">
+        <input type="text" name="search" value="Search ...">
+        <input class="with-tooltip" title="Search!" type="submit" name="submit" value="">
+    </form>
+</div>
+<!-- search form -->
 
+<!-- top menu -->
+<div class="top-menu">
+	<a href="https://blog.52sifang.cn" class="with-tooltip" title="Return to the home page">Home</a> | <a href="/sitemap.xml" class="with-tooltip" title="Navigate through our sitemap">sitemap</a> | <a href="tencent://message/?uin=1398548432&Site=idc.ncshu.com&Menu=yes" class="with-tooltip" title="Contact us!" target="_blank" rel="noopener">Contact us!</a> | <a href="http://www.cssmoban.com" class="with-tooltip" title="模板之家" target="_blank" rel="noopener"></a>
+</div>
+<!-- top menu -->
 
-  <p>对不起，您请求的页面不存在、或已被删除、或暂时不可用</p>
- 
-    <p class="paddingbox">请点击以下链接继续浏览网页</p>
- 
-      <p>》<a style="cursor:pointer" onclick="history.back()">返回上一页面</a></p>
- 
-      <p>》<a href="https://blog.52sifang.cn">返回网站首页</a></p>
- 
+<div class="dog-wrapper">
+<!-- dog running -->
+	<div class="dog"></div>
+<!-- dog running -->
+	
+<!-- dog bubble talking -->
+	<div class="dog-bubble">
+    	
+    </div>
     
-<body bgcolor="#494949">
-<div id="background">
-<div class="bg-photo bg-photo-1" style="display: inline;"></div>
+    <!-- The dog bubble rotates these -->
+    <div class="bubble-options">
+    	<p class="dog-bubble">
+        	Are you lost, bud? No worries, I'm an excellent guide!
+        </p>
+    	<p class="dog-bubble">
+	        <br>
+        	Arf! Arf!
+        </p>
+        <p class="dog-bubble">
+        	<br>
+        	Don't worry! I'm on it!
+        </p>
+        <p class="dog-bubble">
+        	I wish I had a cookie<br><img style="margin-top:8px" src="images/cookie.png" alt="cookie">
+        </p>
+        <p class="dog-bubble">
+        	<br>
+        	Geez! This is pretty tiresome!
+        </p>
+        <p class="dog-bubble">
+        	<br>
+        	Am I getting close?
+        </p>
+        <p class="dog-bubble">
+        	Or am I just going in circles? Nah...
+        </p>
+        <p class="dog-bubble">
+        	<br>
+            OK, I'm officially lost now...
+        </p>
+        <p class="dog-bubble">
+        	I think I saw a <br><img style="margin-top:8px" src="images/cat.png" alt="cat">
+        </p>
+        <p class="dog-bubble">
+        	What are we supposed to be looking for, anyway? @_@
+        </p>
+    </div>
+    <!-- The dog bubble rotates these -->
+<!-- dog bubble talking -->
 </div>
- 
 
- 
+<!-- planet at the bottom -->
+	<div class="planet"></div>
+<!-- planet at the bottom -->
+</div>
+
+
 </body>
- 
 </html>
