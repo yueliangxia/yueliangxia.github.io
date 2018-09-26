@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>https://blog.52sifang.cn/2018/09/25/scrapy-redis/</loc>
+    <lastmod>2018-09-26T13:46:34.057Z</lastmod>
+    <data>
+        <display>
+        <title>分布式爬虫</title>
+        <pubTime>2018-09-25T08:03:00.000Z</pubTime>
+        
+        <tag>..</tag>
+         
+         
+           
+             
+              <breadCrumb title=".." url="https://blog.52sifang.cn/categories//"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.52sifang.cn/2018/09/20/youxinspider-1/</loc>
-    <lastmod>2018-09-20T09:15:31.147Z</lastmod>
+    <lastmod>2018-09-21T02:24:20.031Z</lastmod>
     <data>
         <display>
         <title>youxinSpider</title>

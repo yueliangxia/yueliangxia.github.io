@@ -353,6 +353,292 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.52sifang.cn/2018/09/25/scrapy-redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小 司 机">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="司金辉的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/25/scrapy-redis/" itemprop="url">分布式爬虫</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T16:03:00+08:00">
+                2018-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/" itemprop="url" rel="index">
+                    <span itemprop="name">..</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/25/scrapy-redis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/25/scrapy-redis/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+		  
+		  
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="/ " rel="gallery_cjmj7eyia000030ubv47nbkee"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="/ " itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        
+          
+            <ol>
+<li>概念<br> 将同一个爬虫程序放在多台电脑上(或者同一个电脑中的多个虚拟机环境)，并且在多台电脑上同时启动这个爬虫。异态电脑运行一个爬虫程序成为单机爬虫。</li>
+<li>作用<ul>
+<li>可以利用多台电脑的带宽，处理器等资源提高爬虫的爬取速度；</li>
+</ul>
+</li>
+<li><p>原理 </p>
+<ul>
+<li>分布式需要解决的问题（共用的队列Queue和共用的去重集合set(),这两个是scrapy自身无法解决的问题。只能通过第三方组件。）<ul>
+<li><blockquote>
+<p>需要保证多台电脑中的爬虫代码完全一致；</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>多台电脑操作统一网站，如何管理url去重？</p>
+<ul>
+<li>scrapy如何做去重的？<br>scrapy会将所有的Request对象(request.url,request.method,request.body)进行加密，生成一个指纹对象fingerprint；然后将指纹对象放入set()集合中进行对比，如果set()集合中已经存在这个对象，那么scrapy就会将Request抛弃。如果set()集合中不存在这个指纹对象，就将这个Request添加到调度队列queue中，等待被调度器调度；</li>
+</ul>
+</blockquote>
+</li>
+<li><blockquote>
+<p>多台电脑就会有多个set()对象。能否使用各自的set()做去重？</p>
+<ol>
+<li>不能。这个set()对象中的数据都是保存在电脑内存中的，电脑的内存空间是不能共享的。</li>
+<li>这个set()对象随着程序的启动而创建，程序的退出而销毁<ul>
+<li>所以，要解决这个问题需要让所有电脑公用同一个set()集合，不再使用scrapy内置的set()对象，而是使用scrapy-redis蒋政set()集合在redis中创建。然后多台电脑访问同一个redis就可以实现set集合的共用。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><blockquote>
+<p>用于存放合法Request请求对象的对象，在scrapy中也是默认存放在内存中的，也是无法实现多台电脑的共享队列。如果是多台电脑的话，就需要保证多台电脑有共用的队列queue，这样可以保证所有电脑都是从同一队列中获取Request对象进行调度，多有set()过滤出来的Request都放到同一队列中。</p>
+<ul>
+<li>所以，要解决这个问题，需要让所有电脑公用同一个队列，不再使用scrapy内置的queue，而是使用scrapy-redis将这个queue在redis中创建，然后多台电脑访问同一个redis就可以使用queue的共用。</li>
+</ul>
+</blockquote>
+</li>
+<li><blockquote>
+<p>如何将不同电脑上获取的数据，保存在同一个数据库中。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>配置 </p>
+<blockquote>
+<p>必须配置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enables scheduling storing requests queue in redis.</span></span><br><span class="line">SCHEDULER = <span class="string">"scrapy_redis.scheduler.Scheduler"</span></span><br><span class="line"><span class="comment"># Ensure all spiders share same duplicates filter through redis.</span></span><br><span class="line">DUPEFILTER_CLASS = <span class="string">"scrapy_redis.dupefilter.RFPDupeFilter"</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>可选配置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Store scraped item in redis for post-processing.</span></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">    <span class="string">'scrapy_redis.pipelines.RedisPipeline'</span>: <span class="number">300</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>必须配置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置REDIS_URL = '(redis://redis数据库用户(默认是root)：redis数据库连接密码(默认为空))@(redis的连接地址):(redis的端口号)'</span></span><br><span class="line"><span class="comment"># Specify the full Redis URL for connecting (optional).</span></span><br><span class="line"><span class="comment"># If set, this takes precedence over the REDIS_HOST and REDIS_PORT settings.</span></span><br><span class="line"><span class="comment"># hostname：redis的链接地址，由于多台电脑要连接同一个redis数据库，所以，这个链接地址可以是其中一台电脑的IP地址。注意：这个IP地址对应的电脑必须启动redis，</span></span><br><span class="line"><span class="comment"># 如果是阿里云上购买的redis数据库服务器，这个hostname就填写阿里云的redis服务器的公网IP</span></span><br><span class="line"><span class="comment">#REDIS_URL = 'redis://root@ip:6379'</span></span><br><span class="line"><span class="comment">#REDIS_HOST = 'localhost'</span></span><br><span class="line"><span class="comment">#REDIS_PORT = 6379</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>必须配置</p>
+<ul>
+<li>配置redis服务，默认只支持localhost的本地链接，不允许远程链接，需要配置redis服务，开启远程连接功能。找到本地安装包，修改redis.windows.conf文件<ol>
+<li>将protected-mode yes 这个保护模式改为 no</li>
+<li>将bind 127.0.0.1 修改成REDIS_URL中设置的IP地址(<em>**</em>)</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<h3 id="注意：分布式爬虫程序中设置的所有的key，都是”xxx-xxx”结构，对应的是容器的名称（类似于MySQL中的表名），并不是容器内容中key：value的这个key。"><a href="#注意：分布式爬虫程序中设置的所有的key，都是”xxx-xxx”结构，对应的是容器的名称（类似于MySQL中的表名），并不是容器内容中key：value的这个key。" class="headerlink" title="注意：分布式爬虫程序中设置的所有的key，都是”xxx:xxx”结构，对应的是容器的名称（类似于MySQL中的表名），并不是容器内容中key：value的这个key。"></a>注意：分布式爬虫程序中设置的所有的key，都是”xxx:xxx”结构，对应的是容器的名称（类似于MySQL中的表名），并不是容器内容中key：value的这个key。</h3><blockquote>
+<p>(必须配置)<br>        from ..scrapy_redis.spiders import RedisSpider<br>        class BoleSpider(RedisSpider):<br>            name = ‘bole’<br>            allowed_domains = [‘jobbole.com’]</p>
+</blockquote>
+<pre><code># start_urls = [&apos;http://blog.jobbole.com/all-posts/&apos;]
+
+# 分布式就不需要再设置起始的url，需要通过redis进行添加起始的url。起始的url添加到哪去了？被添加到了公共队列queue中。让多台机器中的其中一台从公共的reids队列queue中，获取起始的url，并对这个起始的url进行请求和解析，获取更多的url，然后将所有的url构造成Request，还放入公共队列queue中，让其他机器获取这些Request请求。
+redis_key = &apos;jobbole:start_urls&apos;
+</code></pre><blockquote>
+<p>向redis_key = ‘jobbole:start_urls’这个键中，添加起始url.<br>        lpush jobbole:start_urls <a href="http://blog.jobbole.com/all-posts/" target="_blank" rel="noopener">http://blog.jobbole.com/all-posts/</a></p>
+</blockquote>
+<blockquote>
+<p>修改MySQL数据库为远程连接，让所有电脑连接同一个数据库，爬取出来的数据都保存在同一个数据库的表中。<br>    默认情况下，MySQL分配的root用户只允许本地连接localhost，如果需要通过IP建立数据库的连接，需要创建一个具有远程连接权限的用户：<br>    <em>.</em>: 所有连接地址都可以使用，比如：localhost,192.168.1.121,117.56.23.4<br>    rootuser: 新创建的用户名<br>    ‘%’: 表示所有权限<br>    ‘123456’: 连接密码<br>    grant all privileges on <em>.</em> to rootuser@’%’ identified by ‘123456’;(需要从cmd先进入mysql，再输入这个命令)</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+    </div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.52sifang.cn/2018/09/20/youxinspider-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -450,7 +736,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  123 字
+                  199 字
                 </span>
               
 
@@ -1933,7 +2219,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1944,7 +2230,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1955,7 +2241,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
