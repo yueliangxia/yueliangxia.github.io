@@ -134,7 +134,7 @@
 <meta property="og:site_name" content="司金辉的个人博客">
 <meta property="og:description" content="概念 将同一个爬虫程序放在多台电脑上(或者同一个电脑中的多个虚拟机环境)，并且在多台电脑上同时启动这个爬虫。异态电脑运行一个爬虫程序成为单机爬虫。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-26T13:50:25.725Z">
+<meta property="og:updated_time" content="2018-09-27T01:29:15.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式爬虫">
 <meta name="twitter:description" content="概念 将同一个爬虫程序放在多台电脑上(或者同一个电脑中的多个虚拟机环境)，并且在多台电脑上同时启动这个爬虫。异态电脑运行一个爬虫程序成为单机爬虫。">
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k 字
+                  1.4k 字
                 </span>
               
 
@@ -575,6 +575,13 @@ redis_key = &apos;jobbole:start_urls&apos;
 <blockquote>
 <p>修改MySQL数据库为远程连接，让所有电脑连接同一个数据库，爬取出来的数据都保存在同一个数据库的表中。<br>    默认情况下，MySQL分配的root用户只允许本地连接localhost，如果需要通过IP建立数据库的连接，需要创建一个具有远程连接权限的用户：<br>    <em>.</em>: 所有连接地址都可以使用，比如：localhost,192.168.1.121,117.56.23.4<br>    rootuser: 新创建的用户名<br>    ‘%’: 表示所有权限<br>    ‘123456’: 连接密码<br>    grant all privileges on <em>.</em> to rootuser@’%’ identified by ‘123456’;(需要从cmd先进入mysql，再输入这个命令)</p>
 </blockquote>
+<div class="note warning"><ul>
+<li>scrapy去重：</li>
+</ul>
+<ol>
+<li>start_url = [‘<a href="http://blog.jobbole.com/all-posts/&#39;,&#39;http://blog.jobbole.com/all-posts/&#39;]" target="_blank" rel="noopener">http://blog.jobbole.com/all-posts/&#39;,&#39;http://blog.jobbole.com/all-posts/&#39;]</a> 这个列表中的所有的url都不会去重。<br>dont_filter的默认值是False<br>def start_request():<br> for start_requests:<br>   yield Request(dont_filter=True)</li>
+<li>除了start_urls之外的这些请求都是要去重的。</li>
+</ol></div>
 
       
     </div>
@@ -594,7 +601,7 @@ redis_key = &apos;jobbole:start_urls&apos;
   <p><span>本文标题:</span><a href="/2018/09/25/scrapy-redis/">分布式爬虫</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 小 司 机 的个人博客">小 司 机</a></p>
   <p><span>发布时间:</span>2018年09月25日 - 16:09</p>
-  <p><span>最后更新:</span>2018年09月26日 - 21:09</p>
+  <p><span>最后更新:</span>2018年09月27日 - 09:09</p>
   <p><span>原始链接:</span><a href="/2018/09/25/scrapy-redis/" title="分布式爬虫">https://blog.52sifang.cn/2018/09/25/scrapy-redis/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.52sifang.cn/2018/09/25/scrapy-redis/"  aria-label="复制成功！"></i></span>
   </p>
