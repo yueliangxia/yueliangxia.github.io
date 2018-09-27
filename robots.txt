@@ -10,3 +10,4 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
+Sitemap: https://blog.52sifang.cn/sitemap.xml
