@@ -136,7 +136,7 @@
 <meta property="og:image" content="https://wx2.sinaimg.cn/large/0068ZTOjly1fvo3wznucwj30lj09879a.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/0068ZTOjly1fvo413bep2j30nf0b6q3d.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/0068ZTOjly1fvo48d6dbwj30vi0dhwio.jpg">
-<meta property="og:updated_time" content="2018-09-27T08:11:43.390Z">
+<meta property="og:updated_time" content="2018-09-27T08:41:10.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scrapy部署爬虫项目">
 <meta name="twitter:description" content="功能：它就相当于是一个服务器，用于将自己本地的爬虫代码，打包上传到服务器上，让这个爬虫在服务器上运行，可以实现对爬虫的远程管理。(远程启动爬虫，远程关闭爬虫，远程查看爬虫的一些日志。)">
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  386 字
+                  440 字
                 </span>
               
 
@@ -493,8 +493,10 @@
 </li>
 <li><p>使用scrapy-deploy命令打包项目：<br><code>scrapyd-deploy bole -p jobbolespider</code></p>
 <blockquote>
-<p>参数：<br>ceshi</p>
+<p>参数：<br>Status:”ok”/“error” 项目上传状态<br>Project: 上传的项目名称<br>Version： 项目的版本号，值是时间戳<br>Spiders:</p>
 </blockquote>
+</li>
+<li><p>通过API接口，查看已经上传至scrapyd服务项目。<br><code>命令：curl http://localhost:6800/listprojects.json</code></p>
 </li>
 </ul>
 <hr>
