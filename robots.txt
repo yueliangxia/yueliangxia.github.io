@@ -10,6 +10,7 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
+Disallow: /2018/
 
 User-agent: *
 Disallow: /
