@@ -136,7 +136,7 @@
 <meta property="og:image" content="https://wx2.sinaimg.cn/large/0068ZTOjly1fvo3wznucwj30lj09879a.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/0068ZTOjly1fvo413bep2j30nf0b6q3d.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/0068ZTOjly1fvo48d6dbwj30vi0dhwio.jpg">
-<meta property="og:updated_time" content="2018-09-27T09:17:12.182Z">
+<meta property="og:updated_time" content="2018-09-27T09:49:53.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scrapy部署爬虫项目">
 <meta name="twitter:description" content="功能：它就相当于是一个服务器，用于将自己本地的爬虫代码，打包上传到服务器上，让这个爬虫在服务器上运行，可以实现对爬虫的远程管理。(远程启动爬虫，远程关闭爬虫，远程查看爬虫的一些日志。)">
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  609 字
+                  645 字
                 </span>
               
 
@@ -494,19 +494,30 @@
 <li><p>使用scrapy-deploy命令打包项目：<br><code>scrapyd-deploy bole -p jobbolespider</code></p>
 <blockquote>
 <p>参数：<br>Status:”ok”/“error” 项目上传状态<br>Project:  上传的项目名称<br>Version:  项目的版本号，值是时间戳<br>Spiders:  项目project包含的爬虫个数</p>
+<div class="note warning"><p>注意：如果项目上传失败，需要先将爬虫项目中打包生成的文件删除(build、project.egg-info、setup.py)</p></div>
+* 通过API接口，查看已经上传至scrapyd服务项目。
+`命令：curl http://localhost:6800/listprojects.json`
+
+键值：
+
+Projects:[]所有已经上传的爬虫项目，都会显示在这个列表中。
+
+* 通过API接口，查看某一个项目中的所有的爬虫名称；
+`命令： $ curl http://localhost:6800/listspiders.json?project=myproject`
+
+* 通过API接口，启动爬虫项目：
+`命令： curl http://localhost:6800/schedule.json -d project=爬虫项目名称名称 -d spider=项目中某一个爬虫名称 `
+键值：
+
+
+jobid：是根据项目(jobbolespider)和爬虫(bole)生成的一个id，将来用于取消爬虫任务。
+`取消：curl http://localhost6800/cancel.json -d project=jobbolespider -d job=**`
+
+`删除命令：$ curl http://localhost:6800/delproject.json -d project=myproject`
+<div class="note warning"><p>注意：删除前一定要先取消！</p></div>
 </blockquote>
-<h3 id="注意：如果项目上传失败，需要先将爬虫项目中打包生成的文件删除-build、project-egg-info、setup-py"><a href="#注意：如果项目上传失败，需要先将爬虫项目中打包生成的文件删除-build、project-egg-info、setup-py" class="headerlink" title="注意：如果项目上传失败，需要先将爬虫项目中打包生成的文件删除(build、project.egg-info、setup.py)"></a>注意：如果项目上传失败，需要先将爬虫项目中打包生成的文件删除(build、project.egg-info、setup.py)</h3></li>
-<li>通过API接口，查看已经上传至scrapyd服务项目。<br><code>命令：curl http://localhost:6800/listprojects.json</code></li>
-</ul>
-<p>键值：</p>
-<p>Projects:[]所有已经上传的爬虫项目，都会显示在这个列表中。</p>
-<ul>
-<li><p>通过API接口，查看某一个项目中的所有的爬虫名称；<br><code>命令： $ curl http://localhost:6800/listspiders.json?project=myproject</code></p>
-</li>
-<li><p>通过API接口，启动爬虫项目：<br><code>命令： curl http://localhost:6800/schedule.json -d project=爬虫项目名称名称 -d spider=项目中某一个爬虫名称</code><br>键值：</p>
 </li>
 </ul>
-<p>jobid：是根据项目(jobbolespider)和爬虫(bole)生成的一个id，将来用于取消爬虫任务。</p>
 <hr>
 
 
@@ -802,7 +813,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-scrapy的安装"><span class="nav-text">1.scrapy的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何将本地的爬虫项目Deloying-打包-，上传至scrapyd这个服务中。"><span class="nav-text">2.如何将本地的爬虫项目Deloying(打包)，上传至scrapyd这个服务中。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-上述服务和客服端安装好之后，就可以启动scrapyd这个服务了。服务启动之后，不要关闭，"><span class="nav-text">3.上述服务和客服端安装好之后，就可以启动scrapyd这个服务了。服务启动之后，不要关闭，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-配置爬虫项目，完成以后，再通过addversion-json进行打包。"><span class="nav-text">4.配置爬虫项目，完成以后，再通过addversion.json进行打包。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-上述的scrapyd服务窗口cmd不要关闭，再心打开一个cmd窗口，用于使用scrapyd-client客户端连接scrapyd服务。"><span class="nav-text">5.上述的scrapyd服务窗口cmd不要关闭，再心打开一个cmd窗口，用于使用scrapyd-client客户端连接scrapyd服务。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意：如果项目上传失败，需要先将爬虫项目中打包生成的文件删除-build、project-egg-info、setup-py"><span class="nav-text">注意：如果项目上传失败，需要先将爬虫项目中打包生成的文件删除(build、project.egg-info、setup.py)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-scrapy的安装"><span class="nav-text">1.scrapy的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何将本地的爬虫项目Deloying-打包-，上传至scrapyd这个服务中。"><span class="nav-text">2.如何将本地的爬虫项目Deloying(打包)，上传至scrapyd这个服务中。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-上述服务和客服端安装好之后，就可以启动scrapyd这个服务了。服务启动之后，不要关闭，"><span class="nav-text">3.上述服务和客服端安装好之后，就可以启动scrapyd这个服务了。服务启动之后，不要关闭，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-配置爬虫项目，完成以后，再通过addversion-json进行打包。"><span class="nav-text">4.配置爬虫项目，完成以后，再通过addversion.json进行打包。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-上述的scrapyd服务窗口cmd不要关闭，再心打开一个cmd窗口，用于使用scrapyd-client客户端连接scrapyd服务。"><span class="nav-text">5.上述的scrapyd服务窗口cmd不要关闭，再心打开一个cmd窗口，用于使用scrapyd-client客户端连接scrapyd服务。</span></a></li></ol></div>
             
 
           </div>
