@@ -134,7 +134,7 @@
 <meta property="og:site_name" content="司金辉的个人博客">
 <meta property="og:description" content="概念 将同一个爬虫程序放在多台电脑上(或者同一个电脑中的多个虚拟机环境)，并且在多台电脑上同时启动这个爬虫。异态电脑运行一个爬虫程序成为单机爬虫。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-27T01:29:15.556Z">
+<meta property="og:updated_time" content="2018-09-27T06:14:59.527Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式爬虫">
 <meta name="twitter:description" content="概念 将同一个爬虫程序放在多台电脑上(或者同一个电脑中的多个虚拟机环境)，并且在多台电脑上同时启动这个爬虫。异态电脑运行一个爬虫程序成为单机爬虫。">
@@ -575,14 +575,15 @@ redis_key = &apos;jobbole:start_urls&apos;
 <blockquote>
 <p>修改MySQL数据库为远程连接，让所有电脑连接同一个数据库，爬取出来的数据都保存在同一个数据库的表中。<br>    默认情况下，MySQL分配的root用户只允许本地连接localhost，如果需要通过IP建立数据库的连接，需要创建一个具有远程连接权限的用户：<br>    <em>.</em>: 所有连接地址都可以使用，比如：localhost,192.168.1.121,117.56.23.4<br>    rootuser: 新创建的用户名<br>    ‘%’: 表示所有权限<br>    ‘123456’: 连接密码<br>    grant all privileges on <em>.</em> to rootuser@’%’ identified by ‘123456’;(需要从cmd先进入mysql，再输入这个命令)</p>
 </blockquote>
-<div class="note warning"><ul>
-<li>scrapy去重：</li>
-</ul>
-<ol>
-<li>start_url = [‘<a href="http://blog.jobbole.com/all-posts/&#39;,&#39;http://blog.jobbole.com/all-posts/&#39;]" target="_blank" rel="noopener">http://blog.jobbole.com/all-posts/&#39;,&#39;http://blog.jobbole.com/all-posts/&#39;]</a> 这个列表中的所有的url都不会去重。<br>dont_filter的默认值是False<br>def start_request():<br> for start_requests:<br>   yield Request(dont_filter=True)</li>
-<li>除了start_urls之外的这些请求都是要去重的。</li>
+<h3 id="scrapy去重："><a href="#scrapy去重：" class="headerlink" title="scrapy去重："></a>scrapy去重：</h3><div class="note warning"><ol>
+<li>start_url = [‘<a href="http://blog.jobbole.com/all-posts/&#39;" target="_blank" rel="noopener">http://blog.jobbole.com/all-posts/&#39;</a>, ‘<a href="http://blog.jobbole.com/all-posts/&#39;]" target="_blank" rel="noopener">http://blog.jobbole.com/all-posts/&#39;]</a> 这个列表中的所有的url都不会去重。</li>
 </ol></div>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dont_filter的默认值是False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_request</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="keyword">for</span> start_requests:</span><br><span class="line">    <span class="keyword">yield</span> Request(dont_filter=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开始去重</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">enqueue_request</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="comment"># 此函数位于core/scheduler文件中。</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> dont_filter <span class="keyword">and</span> self.request_fingerprint(request):</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># 将request添加到队列中</span></span><br></pre></td></tr></table></figure>
+<div class="note success"><ol start="2">
+<li>除了start_urls之外的这些请求都是要去重的。undefined
+</li>
+</ol></div>
       
     </div>
     
@@ -601,7 +602,7 @@ redis_key = &apos;jobbole:start_urls&apos;
   <p><span>本文标题:</span><a href="/2018/09/25/scrapy-redis/">分布式爬虫</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 小 司 机 的个人博客">小 司 机</a></p>
   <p><span>发布时间:</span>2018年09月25日 - 16:09</p>
-  <p><span>最后更新:</span>2018年09月27日 - 09:09</p>
+  <p><span>最后更新:</span>2018年09月27日 - 14:09</p>
   <p><span>原始链接:</span><a href="/2018/09/25/scrapy-redis/" title="分布式爬虫">https://blog.52sifang.cn/2018/09/25/scrapy-redis/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.52sifang.cn/2018/09/25/scrapy-redis/"  aria-label="复制成功！"></i></span>
   </p>
@@ -680,6 +681,10 @@ redis_key = &apos;jobbole:start_urls&apos;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/27/scrapy-overview/" rel="prev" title="scrapy部署爬虫项目">
+                scrapy部署爬虫项目 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -767,7 +772,7 @@ redis_key = &apos;jobbole:start_urls&apos;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -910,7 +915,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意：分布式爬虫程序中设置的所有的key，都是”xxx-xxx”结构，对应的是容器的名称（类似于MySQL中的表名），并不是容器内容中key：value的这个key。"><span class="nav-text">注意：分布式爬虫程序中设置的所有的key，都是”xxx:xxx”结构，对应的是容器的名称（类似于MySQL中的表名），并不是容器内容中key：value的这个key。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意：分布式爬虫程序中设置的所有的key，都是”xxx-xxx”结构，对应的是容器的名称（类似于MySQL中的表名），并不是容器内容中key：value的这个key。"><span class="nav-text">注意：分布式爬虫程序中设置的所有的key，都是”xxx:xxx”结构，对应的是容器的名称（类似于MySQL中的表名），并不是容器内容中key：value的这个key。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scrapy去重："><span class="nav-text">scrapy去重：</span></a></li></ol></div>
             
 
           </div>
