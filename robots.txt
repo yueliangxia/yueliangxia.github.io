@@ -1,4 +1,4 @@
-User-agent: *
+User-agent: Googlebot
 Allow: /archives/
 Allow: /categories/
 Allow: /tags/ 
@@ -9,5 +9,8 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
+
+User-agent: *
+Disallow: /
 
 Sitemap: https://blog.52sifang.cn/sitemap.xml
