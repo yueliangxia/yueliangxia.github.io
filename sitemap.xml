@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.52sifang.cn/2018/09/28/djangoo-study/</loc>
+    
+    <lastmod>2018-09-28T13:04:13.337Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.52sifang.cn/2018/09/25/scrapy-redis/</loc>
     
     <lastmod>2018-09-28T02:10:10.084Z</lastmod>

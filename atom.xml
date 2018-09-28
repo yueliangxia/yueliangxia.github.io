@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-09-27T13:40:20.381Z</updated>
+  <updated>2018-09-28T13:04:13.337Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Djangoo-study</title>
+    <link href="https://blog.52sifang.cn/2018/09/28/djangoo-study/"/>
+    <id>https://blog.52sifang.cn/2018/09/28/djangoo-study/</id>
+    <published>2018-09-28T13:04:13.000Z</published>
+    <updated>2018-09-28T13:04:13.337Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p class=&quot;description&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://&quot; alt=&quot;&quot; style=&quot;width:100%&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>scrapy部署爬虫项目</title>
