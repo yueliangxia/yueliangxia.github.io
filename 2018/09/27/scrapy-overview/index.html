@@ -458,7 +458,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  650 字
+                  652 字
                 </span>
               
 
@@ -511,10 +511,14 @@
 <h3 id="4-配置爬虫项目，完成以后，再通过addversion-json进行打包。"><a href="#4-配置爬虫项目，完成以后，再通过addversion-json进行打包。" class="headerlink" title="4.配置爬虫项目，完成以后，再通过addversion.json进行打包。"></a>4.配置爬虫项目，完成以后，再通过addversion.json进行打包。</h3><p><img src="https://ws4.sinaimg.cn/large/0068ZTOjly1fvo48d6dbwj30vi0dhwio.jpg" alt="image"></p>
 <h3 id="5-上述的scrapyd服务窗口cmd不要关闭，再心打开一个cmd窗口，用于使用scrapyd-client客户端连接scrapyd服务。"><a href="#5-上述的scrapyd服务窗口cmd不要关闭，再心打开一个cmd窗口，用于使用scrapyd-client客户端连接scrapyd服务。" class="headerlink" title="5.上述的scrapyd服务窗口cmd不要关闭，再心打开一个cmd窗口，用于使用scrapyd-client客户端连接scrapyd服务。"></a>5.上述的scrapyd服务窗口cmd不要关闭，再心打开一个cmd窗口，用于使用scrapyd-client客户端连接scrapyd服务。</h3><ul>
 <li><p>进入项目根目录，然后输入scrapyd-delopy命令，查看scrapyd-client客户端命令是否正常可用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：scrapyd-deploy</span><br><span class="line">返回：Unknown target: default</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">输入：scrapyd-deploy</span><br><span class="line">返回：Unknown target: default</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看当前可用于打包上传的爬虫项目：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：scrapyd-deploy -l</span><br><span class="line">返回：bole(scrapy.cfg里添加的爬虫名称)      http://localhost:6800/(scrapy.cfg里解注释的url)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">输入：scrapyd-deploy -l</span><br><span class="line">返回：bole(scrapy.cfg里添加的爬虫名称)      http://localhost:6800/(scrapy.cfg里解注释的url)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用scrapy-deploy命令打包项目：<br><code>scrapyd-deploy bole -p jobbolespider</code></p>
 <blockquote>
@@ -523,22 +527,27 @@
 </li>
 </ul>
 <ul>
-<li>通过API接口，查看已经上传至scrapyd服务项目。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令：curl http://localhost:6800/listprojects.json`</span><br></pre></td></tr></table></figure>
+<li>通过API接口，查看已经上传至scrapyd服务项目。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">命令：curl http://localhost:6800/listprojects.json`</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>键值：</p>
 <p>Projects:[]所有已经上传的爬虫项目，都会显示在这个列表中。</p>
 <ul>
 <li><p>通过API接口，查看某一个项目中的所有的爬虫名称；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令： $ curl http://localhost:6800/listspiders.json?project=myproject</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">命令： $ curl http://localhost:6800/listspiders.json?project=myproject</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>通过API接口，启动爬虫项目：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令： curl http://localhost:6800/schedule.json -d project=爬虫项目名称名称 -d spider=项目中某一个爬虫名称</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">命令： curl http://localhost:6800/schedule.json -d project=爬虫项目名称名称 -d spider=项目中某一个爬虫名称</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>键值：</p>
-<p>jobid：是根据项目(jobbolespider)和爬虫(bole)生成的一个id，将来用于取消爬虫任务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">取消：curl http://localhost6800/cancel.json -d project=jobbolespider -d job=**</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">删除命令：$ curl http://localhost:6800/delproject.json -d project=myproject</span><br></pre></td></tr></table></figure>
+<p>jobid：是根据项目(jobbolespider)和爬虫(bole)生成的一个id，将来用于取消爬虫任务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">取消：curl http://localhost6800/cancel.json -d project=jobbolespider -d job=**</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">删除命令：$ curl http://localhost:6800/delproject.json -d project=myproject</span><br></pre></td></tr></table></figure>
 <hr>
 
 <div class="note warning"><p>注意：如果项目上传失败，需要先将爬虫项目中打包生成的文件删除(build、project.egg-info、setup.py)</p></div>

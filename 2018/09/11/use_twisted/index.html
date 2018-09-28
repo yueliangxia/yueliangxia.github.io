@@ -454,7 +454,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  395 字
+                  413 字
                 </span>
               
 
@@ -493,17 +493,38 @@
       
         <h2 id="异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文"><a href="#异步写入MySQL数据库-如果scrapy解析数据的速度远远超过数据库的写入速度-那么很容易就造成数据的丢失-这里用twisted保证数据的异步多线程写入-提高写入速度-详情请看正文" class="headerlink" title="异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文"></a>异步写入MySQL数据库,如果scrapy解析数据的速度远远超过数据库的写入速度,那么很容易就造成数据的丢失.这里用twisted保证数据的异步多线程写入,提高写入速度.详情请看正文</h2><p>@本文相关源码: <a href="https://github.com/Loveyueliang/yuke/tree/master/9-11/jobbolespider" target="_blank" rel="noopener">https://github.com/Loveyueliang/yuke/tree/master/9-11/jobbolespider</a></p>
 <a id="more"></a>
-<h3 id="首先需要先导入模块"><a href="#首先需要先导入模块" class="headerlink" title="首先需要先导入模块"></a>首先需要先导入模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> twisted.enterprise <span class="keyword">import</span> adbapi</span><br></pre></td></tr></table></figure>
-<h3 id="接着在自定义的pipeline里面重构from-settings函数"><a href="#接着在自定义的pipeline里面重构from-settings函数" class="headerlink" title="接着在自定义的pipeline里面重构from_settings函数"></a>接着在自定义的pipeline里面重构from_settings函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@classmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">from_settings</span><span class="params">(cls, settings)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    这个函数名称是固定的，当爬虫启动的时候，scrapy会自动调用这些函数，加载配置数据。</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
-<h3 id="创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。"><a href="#创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。" class="headerlink" title="创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。"></a>创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数1：操作数据库的包名</span></span><br><span class="line"><span class="comment"># 参数2：链接数据库的参数</span></span><br><span class="line">db_connect_pool = adbapi.ConnectionPool(<span class="string">'pymysql'</span>, **params)</span><br></pre></td></tr></table></figure>
-<h3 id="初始化这个类的对象"><a href="#初始化这个类的对象" class="headerlink" title="初始化这个类的对象"></a>初始化这个类的对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj = cls(db_connect_pool)</span><br></pre></td></tr></table></figure>
-<h3 id="在process-item这个函数里执行数据的多线程写入操作"><a href="#在process-item这个函数里执行数据的多线程写入操作" class="headerlink" title="在process_item这个函数里执行数据的多线程写入操作"></a>在process_item这个函数里执行数据的多线程写入操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数1：在线程中被执行的sql语句</span></span><br><span class="line"><span class="comment"># 参数2：要保存的数据</span></span><br><span class="line">result = self.dbpool.runInteraction(self.insert, item)</span><br><span class="line"><span class="comment"># 给result绑定一个回调函数，用于监听错误信息</span></span><br><span class="line">result.addErrback(self.error)</span><br></pre></td></tr></table></figure>
+<h3 id="首先需要先导入模块"><a href="#首先需要先导入模块" class="headerlink" title="首先需要先导入模块"></a>首先需要先导入模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> twisted.enterprise <span class="keyword">import</span> adbapi</span><br></pre></td></tr></table></figure>
+<h3 id="接着在自定义的pipeline里面重构from-settings函数"><a href="#接着在自定义的pipeline里面重构from-settings函数" class="headerlink" title="接着在自定义的pipeline里面重构from_settings函数"></a>接着在自定义的pipeline里面重构from_settings函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line"><span class="meta">@classmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">from_settings</span><span class="params">(cls, settings)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    这个函数名称是固定的，当爬虫启动的时候，scrapy会自动调用这些函数，加载配置数据。</span></span><br><span class="line"><span class="string">    """</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。"><a href="#创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。" class="headerlink" title="创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。"></a>创建一个数据库连接池对象，这个连接池中可以包含多个connect链接对象。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数1：操作数据库的包名</span></span><br><span class="line"><span class="comment"># 参数2：链接数据库的参数</span></span><br><span class="line">db_connect_pool = adbapi.ConnectionPool(<span class="string">'pymysql'</span>, **params)</span><br></pre></td></tr></table></figure>
+<h3 id="初始化这个类的对象"><a href="#初始化这个类的对象" class="headerlink" title="初始化这个类的对象"></a>初始化这个类的对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">obj = cls(db_connect_pool)</span><br></pre></td></tr></table></figure>
+<h3 id="在process-item这个函数里执行数据的多线程写入操作"><a href="#在process-item这个函数里执行数据的多线程写入操作" class="headerlink" title="在process_item这个函数里执行数据的多线程写入操作"></a>在process_item这个函数里执行数据的多线程写入操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数1：在线程中被执行的sql语句</span></span><br><span class="line"><span class="comment"># 参数2：要保存的数据</span></span><br><span class="line">result = self.dbpool.runInteraction(self.insert, item)</span><br><span class="line"><span class="comment"># 给result绑定一个回调函数，用于监听错误信息</span></span><br><span class="line">result.addErrback(self.error)</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>定义一个打印错误信息的函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">error</span><span class="params">(self, reason)</span>:</span></span><br><span class="line">    print(<span class="string">'--------'</span>, reason)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">error</span><span class="params">(self, reason)</span>:</span></span><br><span class="line">    print(<span class="string">'--------'</span>, reason)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>定义一个执行插入语句的函数,用twisted的好处其中一点就是不用一步步的手动提交</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, cursor, item)</span>:</span></span><br><span class="line">    insert_sql = <span class="string">"INSERT INTO bole(bole_title, bole_date, bole_tag, bole_content, bole_dz, bole_sc, bole_pl, bole_img_src) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"</span></span><br><span class="line">    cursor.execute(insert_sql, (item[<span class="string">'bole_title'</span>], item[<span class="string">'bole_date'</span>], item[<span class="string">'bole_tag'</span>], item[<span class="string">'bole_content'</span>], item[<span class="string">'bole_dz'</span>], item[<span class="string">'bole_sc'</span>], item[<span class="string">'bole_pl'</span>], item[<span class="string">'bole_img_path'</span>]))</span><br><span class="line">    <span class="comment"># 不需要commit()</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, cursor, item)</span>:</span></span><br><span class="line">    insert_sql = <span class="string">"INSERT INTO bole(bole_title, bole_date, bole_tag, bole_content, bole_dz, bole_sc, bole_pl, bole_img_src) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"</span></span><br><span class="line">    cursor.execute(insert_sql, (item[<span class="string">'bole_title'</span>], item[<span class="string">'bole_date'</span>], item[<span class="string">'bole_tag'</span>], item[<span class="string">'bole_content'</span>], item[<span class="string">'bole_dz'</span>], item[<span class="string">'bole_sc'</span>], item[<span class="string">'bole_pl'</span>], item[<span class="string">'bole_img_path'</span>]))</span><br><span class="line">    <span class="comment"># 不需要commit()</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
       

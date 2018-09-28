@@ -454,7 +454,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k 字
+                  1.5k 字
                 </span>
               
 
@@ -515,13 +515,29 @@
 </blockquote>
 </blockquote>
 <h3 id="4-配置"><a href="#4-配置" class="headerlink" title="4. 配置"></a>4. 配置</h3><blockquote>
-<p>必须配置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enables scheduling storing requests queue in redis.</span></span><br><span class="line">SCHEDULER = <span class="string">"scrapy_redis.scheduler.Scheduler"</span></span><br><span class="line"><span class="comment"># Ensure all spiders share same duplicates filter through redis.</span></span><br><span class="line">DUPEFILTER_CLASS = <span class="string">"scrapy_redis.dupefilter.RFPDupeFilter"</span></span><br></pre></td></tr></table></figure></p>
+<p>必须配置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># Enables scheduling storing requests queue in redis.</span></span><br><span class="line">SCHEDULER = <span class="string">"scrapy_redis.scheduler.Scheduler"</span></span><br><span class="line"><span class="comment"># Ensure all spiders share same duplicates filter through redis.</span></span><br><span class="line">DUPEFILTER_CLASS = <span class="string">"scrapy_redis.dupefilter.RFPDupeFilter"</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>可选配置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Store scraped item in redis for post-processing.</span></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">    <span class="string">'scrapy_redis.pipelines.RedisPipeline'</span>: <span class="number">300</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可选配置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># Store scraped item in redis for post-processing.</span></span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">    <span class="string">'scrapy_redis.pipelines.RedisPipeline'</span>: <span class="number">300</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
-<p>必须配置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置REDIS_URL = '(redis://redis数据库用户(默认是root)：redis数据库连接密码(默认为空))@(redis的连接地址):(redis的端口号)'</span></span><br><span class="line"><span class="comment"># Specify the full Redis URL for connecting (optional).</span></span><br><span class="line"><span class="comment"># If set, this takes precedence over the REDIS_HOST and REDIS_PORT settings.</span></span><br><span class="line"><span class="comment"># hostname：redis的链接地址，由于多台电脑要连接同一个redis数据库，所以，这个链接地址可以是其中一台电脑的IP地址。注意：这个IP地址对应的电脑必须启动redis，</span></span><br><span class="line"><span class="comment"># 如果是阿里云上购买的redis数据库服务器，这个hostname就填写阿里云的redis服务器的公网IP</span></span><br><span class="line"><span class="comment">#REDIS_URL = 'redis://root@ip:6379'</span></span><br><span class="line"><span class="comment">#REDIS_HOST = 'localhost'</span></span><br><span class="line"><span class="comment">#REDIS_PORT = 6379</span></span><br></pre></td></tr></table></figure></p>
+<p>必须配置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置REDIS_URL = '(redis://redis数据库用户(默认是root)：redis数据库连接密码(默认为空))@(redis的连接地址):(redis的端口号)'</span></span><br><span class="line"><span class="comment"># Specify the full Redis URL for connecting (optional).</span></span><br><span class="line"><span class="comment"># If set, this takes precedence over the REDIS_HOST and REDIS_PORT settings.</span></span><br><span class="line"><span class="comment"># hostname：redis的链接地址，由于多台电脑要连接同一个redis数据库，所以，这个链接地址可以是其中一台电脑的IP地址。注意：这个IP地址对应的电脑必须启动redis，</span></span><br><span class="line"><span class="comment"># 如果是阿里云上购买的redis数据库服务器，这个hostname就填写阿里云的redis服务器的公网IP</span></span><br><span class="line"><span class="comment">#REDIS_URL = 'redis://root@ip:6379'</span></span><br><span class="line"><span class="comment">#REDIS_HOST = 'localhost'</span></span><br><span class="line"><span class="comment">#REDIS_PORT = 6379</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
 <p>必须配置</p>
@@ -561,12 +577,24 @@
 <div class="note warning"><ol>
 <li>start_url = [‘<a href="http://blog.jobbole.com/all-posts/&#39;" target="_blank" rel="noopener">http://blog.jobbole.com/all-posts/&#39;</a>, ‘<a href="http://blog.jobbole.com/all-posts/&#39;]" target="_blank" rel="noopener">http://blog.jobbole.com/all-posts/&#39;]</a> 这个列表中的所有的url都不会去重。</li>
 </ol></div>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dont_filter的默认值是False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_request</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="keyword">for</span> start_requests:</span><br><span class="line">    <span class="keyword">yield</span> Request(dont_filter=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开始去重</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">enqueue_request</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="comment"># 此函数位于core/scheduler文件中。</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> dont_filter <span class="keyword">and</span> self.request_fingerprint(request):</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># 将request添加到队列中</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># dont_filter的默认值是False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start_request</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="keyword">for</span> start_requests:</span><br><span class="line">    <span class="keyword">yield</span> Request(dont_filter=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># 开始去重</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">enqueue_request</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="comment"># 此函数位于core/scheduler文件中。</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> dont_filter <span class="keyword">and</span> self.request_fingerprint(request):</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># 将request添加到队列中</span></span><br></pre></td></tr></table></figure>
 <div class="note success"><ol start="2">
 <li>除了start_urls之外的这些请求都是要去重的。</li>
 </ol></div>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># scrapy-redis去重：和scrapy默认的去重一致。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># scrapy-redis去重：和scrapy默认的去重一致。</span></span><br></pre></td></tr></table></figure>
 
       
     </div>

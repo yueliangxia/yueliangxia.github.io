@@ -456,7 +456,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  117 字
+                  119 字
                 </span>
               
 
@@ -496,7 +496,9 @@
         <p>@本文源码：<a href="https://github.com/Loveyueliang/yuke/tree/master/9-10" target="_blank" rel="noopener">https://github.com/Loveyueliang/yuke/tree/master/9-10</a></p>
 <a id="more"></a>
 <h3 id="错误点"><a href="#错误点" class="headerlink" title="错误点:"></a>错误点:</h3><ul>
-<li>感觉唯一的坑就是刚学的sql插入,一开始定义的表的字段名和item定义的不一样,所以就各种报KeyError.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert_sql = &quot;INSERT INTO job(zwmc, zwxz, gzdd, gzyq)VALUE (&apos;%s&apos;, &apos;%s&apos;, &apos;%s&apos;, &apos;%s&apos;)&quot;%(item[&apos;zwmc&apos;],item[&apos;zwxz&apos;],item[&apos;gzdd&apos;],item[&apos;gzyq&apos;])</span><br><span class="line">            self.cursor.execute(insert_sql)</span><br></pre></td></tr></table></figure>
+<li>感觉唯一的坑就是刚学的sql插入,一开始定义的表的字段名和item定义的不一样,所以就各种报KeyError.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">insert_sql = &quot;INSERT INTO job(zwmc, zwxz, gzdd, gzyq)VALUE (&apos;%s&apos;, &apos;%s&apos;, &apos;%s&apos;, &apos;%s&apos;)&quot;%(item[&apos;zwmc&apos;],item[&apos;zwxz&apos;],item[&apos;gzdd&apos;],item[&apos;gzyq&apos;])</span><br><span class="line">            self.cursor.execute(insert_sql)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="最终结果还不错-暂时就爬取这一点信息吧"><a href="#最终结果还不错-暂时就爬取这一点信息吧" class="headerlink" title="最终结果还不错,暂时就爬取这一点信息吧."></a>最终结果还不错,暂时就爬取这一点信息吧.</h3><blockquote>
