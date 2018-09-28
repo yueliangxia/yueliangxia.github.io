@@ -1996,7 +1996,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d01883;
+  background: #d1fe6e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3259,17 +3259,17 @@ pre .deletion {
 .links-of-blogroll-title {
   margin-bottom: 10px;
   margin-top: 15px;
-  color: rgba(7,179,155,0.75);
+  color: #07b39b;
   margin-left: 6px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
 }
 .sidebar a {
-  color: #ccc;
+  color: #07b39b;
   border-bottom: none;
 }
 .sidebar a:hover {
-  color: #fff;
+  color: #07b39b;
 }
 .site-description {
   letter-spacing: 5px;
