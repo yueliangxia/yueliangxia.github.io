@@ -44,21 +44,19 @@
     <link href="https://blog.52sifang.cn/2018/09/25/scrapy-redis/"/>
     <id>https://blog.52sifang.cn/2018/09/25/scrapy-redis/</id>
     <published>2018-09-25T08:03:00.000Z</published>
-    <updated>2018-09-27T06:14:59.527Z</updated>
+    <updated>2018-09-28T02:10:10.084Z</updated>
     
     <summary type="html">
     
-      &lt;ol&gt;
-&lt;li&gt;概念&lt;br&gt; 将同一个爬虫程序放在多台电脑上(或者同一个电脑中的多个虚拟机环境)，并且在多台电脑上同时启动这个爬虫。异态电脑运行一个爬虫程序成为单机爬虫。&lt;/li&gt;
-&lt;/ol&gt;
+      &lt;h3 id=&quot;1-概念&quot;&gt;&lt;a href=&quot;#1-概念&quot; class=&quot;headerlink&quot; title=&quot;1. 概念&quot;&gt;&lt;/a&gt;1. 概念&lt;/h3&gt;&lt;p&gt;将同一个爬虫程序放在多台电脑上(或者同一个电脑中的多个虚拟机环境)，并且在多台电脑上同时启动这个爬虫。异态电脑运行一个爬虫程序成为单机爬虫。&lt;/p&gt;
 &lt;hr&gt;
     
     </summary>
     
-      <category term=".." scheme="https://blog.52sifang.cn/categories//"/>
+      <category term="scrapy" scheme="https://blog.52sifang.cn/categories/scrapy/"/>
     
     
-      <category term=".." scheme="https://blog.52sifang.cn/tags//"/>
+      <category term="scrapy,redis" scheme="https://blog.52sifang.cn/tags/scrapy-redis/"/>
     
   </entry>
   

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.52sifang.cn/2018/09/25/scrapy-redis/</loc>
+    
+    <lastmod>2018-09-28T02:10:10.084Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.52sifang.cn/2018/09/27/scrapy-overview/</loc>
     
     <lastmod>2018-09-27T13:40:20.381Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://blog.52sifang.cn/about/index.html</loc>
     
     <lastmod>2018-09-27T07:35:47.419Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.52sifang.cn/2018/09/25/scrapy-redis/</loc>
-    
-    <lastmod>2018-09-27T06:14:59.527Z</lastmod>
     
   </url>
   
