@@ -28,7 +28,7 @@
 <meta property="og:description" content="Django的一些基础知识，例如Django框架的基本结构">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://wx2.sinaimg.cn/large/0068ZTOjly1fvpl88hpgaj30k8092409.jpg">
-<meta property="og:updated_time" content="2018-09-29T12:19:48.960Z">
+<meta property="og:updated_time" content="2018-09-29T12:40:41.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django的学习记录">
 <meta name="twitter:description" content="Django的一些基础知识，例如Django框架的基本结构">
@@ -211,7 +211,7 @@
                 </span>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 <span title="字数统计">
-                  1.4k 字
+                  1.6k 字
                 </span>
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
@@ -219,7 +219,7 @@
                 </span>
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 <span title="阅读时长">
-                  5 分钟
+                  6 分钟
                 </span>
             </div>
         </div>
@@ -260,11 +260,40 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h3 id="3-第一个DevOPS工程"><a href="#3-第一个DevOPS工程" class="headerlink" title="(3)第一个DevOPS工程"></a>(3)第一个DevOPS工程</h3><p></p><h4 id="settings">settings文件详细配置<p></p>
+<h3 id="3-第一个DevOPS工程"><a href="#3-第一个DevOPS工程" class="headerlink" title="(3)第一个DevOPS工程"></a>(3)第一个DevOPS工程</h3><ul>
+<li>启动Django工程的命令<br><code>python manage.py sunserver</code></li>
+</ul>
+<p></p><h4 id="settings">settings文件详细配置<p></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
 <span class="line">3</span>
 </pre></td><td class="code"><pre><span class="line"><span class="comment"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span></span><br><span class="line"><span class="comment"># BASE_DIR 是一个路径，工程启动的初始化基础路径，后面会调用基础路径去取其他的文件</span></span><br><span class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建的应用如果没有加到settings文件里是不会随着Django工程一起启动的。所以首先要做的就是把自己的项目添加到INSTALLED_APPS这个列表里，最好直接添加到最后面。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Application definition</span></span><br><span class="line"></span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">	<span class="comment"># 前面都是Django的一起默认的基础模块</span></span><br><span class="line">    <span class="string">'django.contrib.admin'</span>, <span class="comment"># 后台模块</span></span><br><span class="line">    <span class="string">'django.contrib.auth'</span>, <span class="comment"># 认证相关的模块</span></span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="string">'scanhosts'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据库的连接，也是需要配置的。默认使用的是sqlite的数据库</span></span><br><span class="line"><span class="comment"># Database</span></span><br><span class="line"><span class="comment"># https://docs.djangoproject.com/en/2.1/ref/settings/#databases</span></span><br><span class="line"></span><br><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.sqlite3'</span>,</span><br><span class="line">        <span class="string">'NAME'</span>: os.path.join(BASE_DIR, <span class="string">'db.sqlite3'</span>),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="4-Django日志logging模块"><a href="#4-Django日志logging模块" class="headerlink" title="(4)Django日志logging模块"></a>(4)Django日志logging模块</h3><h3 id="5-Django邮件发送"><a href="#5-Django邮件发送" class="headerlink" title="(5)Django邮件发送"></a>(5)Django邮件发送</h3><hr>
 <p>极验验证：</p>
 <ol>
@@ -461,6 +490,32 @@ show_date_time();
 2
 3
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)# BASE_DIR 是一个路径，工程启动的初始化基础路径，后面会调用基础路径去取其他的文件BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+# 新建的应用如果没有加到settings文件里是不会随着Django工程一起启动的。所以首先要做的就是把自己的项目添加到INSTALLED_APPS这个列表里，最好直接添加到最后面。# Application definitionINSTALLED_APPS = [	# 前面都是Django的一起默认的基础模块    &#39;django.contrib.admin&#39;, # 后台模块    &#39;django.contrib.auth&#39;, # 认证相关的模块    &#39;django.contrib.contenttypes&#39;,    &#39;django.contrib.sessions&#39;,    &#39;django.contrib.messages&#39;,    &#39;django.contrib.staticfiles&#39;,    &#39;scanhosts&#39;,]
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+# 数据库的连接，也是需要配置的。默认使用的是sqlite的数据库# Database# https://docs.djangoproject.com/en/2.1/ref/settings/#databasesDATABASES = {    &#39;default&#39;: {        &#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,        &#39;NAME&#39;: os.path.join(BASE_DIR, &#39;db.sqlite3&#39;),    }}
 (4)Django日志logging模块(5)Django邮件发送
 极验验证：
 抓取极验参数:
