@@ -28,7 +28,7 @@
 <meta property="og:description" content="Django的一些基础知识，例如Django框架的基本结构">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://wx2.sinaimg.cn/large/0068ZTOjly1fvpl88hpgaj30k8092409.jpg">
-<meta property="og:updated_time" content="2018-09-29T07:54:01.273Z">
+<meta property="og:updated_time" content="2018-09-29T12:19:48.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django的学习记录">
 <meta name="twitter:description" content="Django的一些基础知识，例如Django框架的基本结构">
@@ -211,7 +211,7 @@
                 </span>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 <span title="字数统计">
-                  916 字
+                  1.4k 字
                 </span>
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
@@ -219,7 +219,7 @@
                 </span>
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 <span title="阅读时长">
-                  3 分钟
+                  5 分钟
                 </span>
             </div>
         </div>
@@ -239,18 +239,33 @@
 </ul>
 <h3 id="2-Django工程结构和建立"><a href="#2-Django工程结构和建立" class="headerlink" title="(2)Django工程结构和建立"></a>(2)Django工程结构和建立</h3><ul>
 <li>首先安装好Django后，通过Django-admin startproject 项目名 新建一个项目。</li>
+<li>应用的建立(scanhosts：应用名)<br><code>Ubuntu: ./manage.py startapp scanhosts</code><br><code>Windows: python manage.py startapp scanhosts</code></li>
 <li>下面是Django的目录的大体结构：<br><img src="https://wx2.sinaimg.cn/large/0068ZTOjly1fvpl88hpgaj30k8092409.jpg" alt="目录结构"></li>
 </ul>
 <blockquote>
 <p>首先最外层的是容器项目名–注意：这个容器项目，没有什么实际的作用，修改容器项目的名字，并不会影响后面项目的运行。</p>
 <blockquote>
-<p><strong>manage.py</strong>：是一个命令行工具，会接收对于自己的Django工程的管理，比如Django工程的启动和关闭，或者进行相应的调试，或者是数据模型的迁移等等操作，都是用这个文件进行操作。–里面的内容很简单就是从终端接收对应的参数去执行对应的命令，所以起到的是一个Django的管理工具的作用。<br><strong>其他文件夹</strong>：然后下面就是包含的应用项目，一个容器项目里面可以包含多个应用项目</p>
+<p><strong>manage.py</strong>：是一个命令行工具，会接收对于自己的Django工程的管理，比如Django工程的启动和关闭，或者进行相应的调试，或者是数据模型的迁移等等操作，都是用这个文件进行操作。–里面的内容很简单就是从终端接收对应的参数去执行对应的命令，所以起到的是一个Django的管理工具的作用。</p>
 <blockquote>
-<p><strong>setting.py文件</strong>：非常重要！</p>
+<p><strong>setting.py</strong>：<del><a href="#settings">详细配置</a></del><strong>非常重要！</strong>这个里面有Django工程里面初始化的所有的相应的默认设置，也有后面我们要对Django工程对应的核心模块的一些设置都会集中在settings这个模块里面。Django初始化启动的服务也都是通过settings里面对应的配置去读取<br><strong>urls.py</strong>: 用于做Django工程的url路由的——我们要做自己的Web后台服务的时候，要生成自己的http的url，urls<br>.py就是url的路径进行对应的路由的。<br><strong>wsgi.py</strong>：这个是Django自己的一个与wsgi兼容Web服务的接口。不用做详细的了解<br><strong>其他文件夹</strong>：然后下面就是包含的应用项目，一个容器项目里面可以包含多个应用项目<br><strong>scanhosts</strong>：自己建立的应用<br><strong>models.py</strong>：<strong>重点了解</strong> Django的ORM模型建立model这个模型的一些配置都会放到这里面,默认里面只有下面这一行代码。这里是指导入了Django的模型，我们在定义数据库模型的时候，就要在这个文件里建立。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="comment"># Create your models here.</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 </blockquote>
 </blockquote>
-<h3 id="2-modles模型建立"><a href="#2-modles模型建立" class="headerlink" title="(2)modles模型建立"></a>(2)modles模型建立</h3><h3 id="3-第一个DevOPS工程"><a href="#3-第一个DevOPS工程" class="headerlink" title="(3)第一个DevOPS工程"></a>(3)第一个DevOPS工程</h3><h3 id="4-Django日志logging模块"><a href="#4-Django日志logging模块" class="headerlink" title="(4)Django日志logging模块"></a>(4)Django日志logging模块</h3><h3 id="5-Django邮件发送"><a href="#5-Django邮件发送" class="headerlink" title="(5)Django邮件发送"></a>(5)Django邮件发送</h3><hr>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><strong>migrations文件夹</strong>：默认是空的，这里是要做数据迁移用的。我们在models这个文件里进行对应的数据库模型的建立和更改以后，为了进行一个对应的迁移操作，会生成一些临时文件（一些临时的但是非常重要的中间文件）在migrations里面。会保存对应的文件的操作信息在这个文件夹里面。<br><strong>views.py</strong>： 是一个视图文件，同样也是在我们如果需要进行Web后台或者接口服务的话，对应相应的逻辑处理的逻辑层的代码书写都会放在这个文件里。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="3-第一个DevOPS工程"><a href="#3-第一个DevOPS工程" class="headerlink" title="(3)第一个DevOPS工程"></a>(3)第一个DevOPS工程</h3><p></p><h4 id="settings">settings文件详细配置<p></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span></span><br><span class="line"><span class="comment"># BASE_DIR 是一个路径，工程启动的初始化基础路径，后面会调用基础路径去取其他的文件</span></span><br><span class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</span><br></pre></td></tr></table></figure>
+<h3 id="4-Django日志logging模块"><a href="#4-Django日志logging模块" class="headerlink" title="(4)Django日志logging模块"></a>(4)Django日志logging模块</h3><h3 id="5-Django邮件发送"><a href="#5-Django邮件发送" class="headerlink" title="(5)Django邮件发送"></a>(5)Django邮件发送</h3><hr>
 <p>极验验证：</p>
 <ol>
 <li><p>抓取极验参数:</p>
@@ -268,6 +283,7 @@
 <li><p>将上述参数challenge换个validate，混合着网站自己的提交的参数向网站自己的url发生POST请求，即可。</p>
 </li>
 </ol>
+</h4>
     </div>
 	<div>
         ﻿
@@ -440,7 +456,25 @@ show_date_time();
       <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-为什么要选择Django"><span class="nav-text">(1)为什么要选择Django</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-一站式的解决方案（ORM，Session，Admin等）"><span class="nav-text">1.一站式的解决方案（ORM，Session，Admin等）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-成熟的Python-Web框架（Django社区、丰富模块、稳定）"><span class="nav-text">2.成熟的Python Web框架（Django社区、丰富模块、稳定）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Django工程结构和建立"><span class="nav-text">(2)Django工程结构和建立</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-modles模型建立"><span class="nav-text">(2)modles模型建立</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-第一个DevOPS工程"><span class="nav-text">(3)第一个DevOPS工程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Django日志logging模块"><span class="nav-text">(4)Django日志logging模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Django邮件发送"><span class="nav-text">(5)Django邮件发送</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-为什么要选择Django"><span class="nav-text">(1)为什么要选择Django</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-一站式的解决方案（ORM，Session，Admin等）"><span class="nav-text">1.一站式的解决方案（ORM，Session，Admin等）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-成熟的Python-Web框架（Django社区、丰富模块、稳定）"><span class="nav-text">2.成熟的Python Web框架（Django社区、丰富模块、稳定）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Django工程结构和建立"><span class="nav-text">(2)Django工程结构和建立</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-第一个DevOPS工程"><span class="nav-text">(3)第一个DevOPS工程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#settings"><span class="nav-text">settings文件详细配置
+1
+2
+3
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)# BASE_DIR 是一个路径，工程启动的初始化基础路径，后面会调用基础路径去取其他的文件BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+(4)Django日志logging模块(5)Django邮件发送
+极验验证：
+抓取极验参数:
+ 任何一个网站，如果在登录时网站接入的极验的接口，那么该网站就可以使用极验验证码进行登录。此时，极验验证码API就会返回两个极验参数(gt和challenge)。这两个参数只跟极验验证码API相关，跟这个网站没有任何关系。
+ 注意： 有的网站是直接调用极验官方提供的验证码接口，比如：极验的官方后台：https://auth.geetest.cn/api/ ；有的网站又对极验验证吗接口封装了一个API接，比如：魅族登录：https://login.flyme.cn/sec/geetest?
+将获取的极验参数，提交给极验破解网站的识别接口。会得到新的返回值：
+1
+2
+3
+4
+5
+{    status: &quot;ok&quot;,    challenge: &quot;3d033f099597f5ae63e2e2c902301d183z&quot;,    validate: &quot;8f6ebd56291ed6569ac40c1d74780985&quot;}
+将上述参数challenge换个validate，混合着网站自己的提交的参数向网站自己的url发生POST请求，即可。
+</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Django日志logging模块"><span class="nav-text">(4)Django日志logging模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Django邮件发送"><span class="nav-text">(5)Django邮件发送</span></a></li></ol></div>
           </div>
         </section>
       <!--/noindex-->
