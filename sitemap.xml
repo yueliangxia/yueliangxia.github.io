@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.52sifang.cn/404.html</loc>
+    
+    <lastmod>2018-09-29T07:21:38.358Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.52sifang.cn/2018/09/28/django-study/</loc>
     
-    <lastmod>2018-09-28T14:01:18.769Z</lastmod>
+    <lastmod>2018-09-29T01:51:54.020Z</lastmod>
     
   </url>
   
@@ -40,13 +47,6 @@
     <loc>https://blog.52sifang.cn/2018/09/20/youxinspider-1/</loc>
     
     <lastmod>2018-09-21T02:24:20.031Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.52sifang.cn/404.html</loc>
-    
-    <lastmod>2018-09-19T14:31:18.859Z</lastmod>
     
   </url>
   
