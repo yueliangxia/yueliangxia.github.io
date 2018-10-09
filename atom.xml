@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-09-29T12:40:41.193Z</updated>
+  <updated>2018-10-09T12:47:35.308Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>天眼查的字体加密</title>
+    <link href="https://blog.52sifang.cn/2018/10/09/tianyancha/"/>
+    <id>https://blog.52sifang.cn/2018/10/09/tianyancha/</id>
+    <published>2018-10-09T11:27:54.000Z</published>
+    <updated>2018-10-09T12:47:35.308Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;关于一些网站的字体加密方面，目前发现的也就只有两种：一种是起点网的那个总字数那种的给的是是禁止的数据，转换成十六进制之后再在woff文件转换成的xml文件中寻找对应的关系。另一种就是类似于天眼查的，获取到的源码是字体的位置信息，然后需要根据位置信息取出对应的数据。&lt;/blockquote&gt; 
+
+&lt;!-- &lt;img src=&quot;https://&quot; alt=&quot;&quot; style=&quot;width:100%&quot; /&gt; --&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Django的学习记录</title>
