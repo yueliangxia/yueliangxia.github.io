@@ -1999,7 +1999,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #11ff1d;
+  background: #cf71ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3125,8 +3125,7 @@ span#inline-toc {
   padding-bottom: 0px;
 }
 .main-inner {
-  margin-top: 30px;
-  padding: 30px 30px 30px 30px;
+  margin: 0px;
   background: #fff;
   opacity: 0.88;
   min-height: 500px;
@@ -3204,7 +3203,7 @@ h3,
 h4,
 h5,
 h6 {
-  border-left: 4px solid #a166ab;
+  border-left: 4px solid #32cd32;
   margin-left: -36px;
   padding-left: 32px;
 }
@@ -3231,12 +3230,12 @@ hr {
   margin: 80px 0px 40px 0px;
 }
 a {
-  color: #5073b8;
-  border-bottom-color: #5073b8;
+  color: #00b970;
+  border-bottom-color: #17ca80;
 }
 a:hover {
   color: #a166ab;
-  border-bottom-color: #a166ab;
+  border-bottom-color: #23a671;
 }
 .sidebar-toggle {
   right: 10px;
@@ -3469,7 +3468,7 @@ h2.about-title {
   color: #07b39b;
 }
 ::selection {
-  background-color: #fff159;
+  background-color: #b9e86a;
   color: #555;
 }
 ::-webkit-scrollbar {
