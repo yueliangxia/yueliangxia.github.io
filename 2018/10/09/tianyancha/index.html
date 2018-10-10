@@ -14,6 +14,8 @@
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
   <meta name="keywords" content="Hexo, bolg" />
   <link rel="alternate" href="/atom.xml" title="司金辉的个人博客" type="application/atom+xml" />
@@ -24,7 +26,7 @@
 <meta property="og:site_name" content="司金辉的个人博客">
 <meta property="og:description" content="关于一些网站的字体加密方面，目前发现的也就只有两种：一种是起点网的那个总字数那种的给的是是禁止的数据，转换成十六进制之后再在woff文件转换成的xml文件中寻找对应的关系。另一种就是类似于天眼查的，获取到的源码是字体的位置信息，然后需要根据位置信息取出对应的数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-09T12:47:35.308Z">
+<meta property="og:updated_time" content="2018-10-09T13:08:33.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="天眼查的字体加密">
 <meta name="twitter:description" content="关于一些网站的字体加密方面，目前发现的也就只有两种：一种是起点网的那个总字数那种的给的是是禁止的数据，转换成十六进制之后再在woff文件转换成的xml文件中寻找对应的关系。另一种就是类似于天眼查的，获取到的源码是字体的位置信息，然后需要根据位置信息取出对应的数据。">
@@ -194,7 +196,7 @@
                 </span>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 <span title="字数统计">
-                  278 字
+                  277 字
                 </span>
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
@@ -213,7 +215,7 @@
 <a id="more"></a>
 <h3 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h3><hr>
 <p>这里我用了两种方式来搞定这种相对应位置的字体加密。</p>
-<h3 id="1-第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片文字识别模块-pytesseract-来取出保存的图像中包含的数字，从而获得它们的对应关系。"><a href="#1-第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片文字识别模块-pytesseract-来取出保存的图像中包含的数字，从而获得它们的对应关系。" class="headerlink" title="1.第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片文字识别模块(pytesseract)来取出保存的图像中包含的数字，从而获得它们的对应关系。"></a>1.第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片文字识别模块(pytesseract)来取出保存的图像中包含的数字，从而获得它们的对应关系。</h3><hr>
+<h3 id="1-第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片识别-tesseract-orc-技术来取出保存的图像中包含的数字，从而获得它们的对应关系。"><a href="#1-第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片识别-tesseract-orc-技术来取出保存的图像中包含的数字，从而获得它们的对应关系。" class="headerlink" title="1.第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片识别(tesseract-orc)技术来取出保存的图像中包含的数字，从而获得它们的对应关系。"></a>1.第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片识别(tesseract-orc)技术来取出保存的图像中包含的数字，从而获得它们的对应关系。</h3><hr>
 <h3 id="2-第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。"><a href="#2-第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。" class="headerlink" title="2.第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。"></a>2.第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。</h3><hr>
     </div>
 	<div>
@@ -384,7 +386,7 @@ show_date_time();
       <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前提："><span class="nav-text">前提：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片文字识别模块-pytesseract-来取出保存的图像中包含的数字，从而获得它们的对应关系。"><span class="nav-text">1.第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片文字识别模块(pytesseract)来取出保存的图像中包含的数字，从而获得它们的对应关系。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。"><span class="nav-text">2.第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前提："><span class="nav-text">前提：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片识别-tesseract-orc-技术来取出保存的图像中包含的数字，从而获得它们的对应关系。"><span class="nav-text">1.第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片识别(tesseract-orc)技术来取出保存的图像中包含的数字，从而获得它们的对应关系。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。"><span class="nav-text">2.第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。</span></a></li></ol></div>
           </div>
         </section>
       <!--/noindex-->
