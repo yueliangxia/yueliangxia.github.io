@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="司金辉的个人博客">
 <meta property="og:description" content="关于一些网站的字体加密方面，目前发现的也就只有两种：一种是起点网的那个总字数那种的给的是是禁止的数据，转换成十六进制之后再在woff文件转换成的xml文件中寻找对应的关系。另一种就是类似于天眼查的，获取到的源码是字体的位置信息，然后需要根据位置信息取出对应的数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-10T13:37:52.163Z">
+<meta property="og:updated_time" content="2018-10-10T13:45:16.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="天眼查的字体加密">
 <meta name="twitter:description" content="关于一些网站的字体加密方面，目前发现的也就只有两种：一种是起点网的那个总字数那种的给的是是禁止的数据，转换成十六进制之后再在woff文件转换成的xml文件中寻找对应的关系。另一种就是类似于天眼查的，获取到的源码是字体的位置信息，然后需要根据位置信息取出对应的数据。">
@@ -218,7 +218,7 @@
 <!-- <img src="https://" alt="" style="width:100%" /> -->
 <a id="more"></a>
 <h3 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h3><hr>
-<p>这里我用了两种方式来搞定这种相对应位置的字体加密。</p>
+<div class="note info"><p>这里我用了两种方式来搞定这种相对应位置的字体加密。</p></div>
 <h3 id="1-第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片识别-tesseract-orc-技术来取出保存的图像中包含的数字，从而获得它们的对应关系。"><a href="#1-第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片识别-tesseract-orc-技术来取出保存的图像中包含的数字，从而获得它们的对应关系。" class="headerlink" title="1.第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片识别(tesseract-orc)技术来取出保存的图像中包含的数字，从而获得它们的对应关系。"></a>1.第一种的思路是：主要采用PIL图像处理模块来根据1-0这个十个源码里获得的数字取出字体文件里真正要显示的数字，并画在画布上保存成文件，然后利用图片识别(tesseract-orc)技术来取出保存的图像中包含的数字，从而获得它们的对应关系。</h3><hr>
 <ul>
 <li>1.1：首先当然是需要安装必须的工具，俗话说“工欲善其事，必先利其器”嘛。<ul>
@@ -228,7 +228,7 @@
 </li>
 <li>1.2：</li>
 </ul>
-<h3 id="2-第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。"><a href="#2-第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。" class="headerlink" title="2.第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。"></a>2.第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。</h3><div class="note info"><p>这次就主要先写这一个吧。<a href="#parse_font_xml">代码</a></p></div>
+<h3 id="2-第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。"><a href="#2-第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。" class="headerlink" title="2.第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。"></a>2.第二种思路就是还是解析字体转换成的xml文件，从中找到它们之间的对应关系。</h3><div class="note primary"><p>这次就主要先写这一个吧。<a href="#parse_font_xml">代码</a></p></div>
 <h4>我还是直接在代码中注释出来吧。虽然不一定适合其他网站，但是思路还是不错滴。</h4>
 <h4 id="parse_font_xml">解析转换成xml的woff文件代码</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
