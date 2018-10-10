@@ -2040,7 +2040,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d9b604;
+  background: #ffd09c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3245,7 +3245,7 @@ h4,
 h5,
 h6 {
   border-left: 4px solid #32cd32;
-  margin-left: -36px;
+  margin-left: -15px;
   padding-left: 32px;
 }
 hr {
