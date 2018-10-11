@@ -2040,7 +2040,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c821ff;
+  background: #b41db9;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3537,10 +3537,10 @@ h2.love {
   color: #ff71a8;
   -webkit-text-fill-color: unset;
 }
-blockquote.question {
-  color: #555;
-  border-left: 4px solid #1098ad;
-  background-color: #e3f2fd;
+blockquote.green {
+  color: #009bda;
+  border-left: 4px solid #00b37e;
+  background-color: #34d3a7;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   margin-bottom: 20px;
