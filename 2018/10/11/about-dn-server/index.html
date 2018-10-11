@@ -138,7 +138,7 @@
 <meta property="og:image" content="https://wx1.sinaimg.cn/large/0068ZTOjly1fw43ccbednj30qw0apabj.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/0068ZTOjly1fw43dn74i1j30nj0dr75j.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0068ZTOjly1fw445x370bj30ni04r3ys.jpg">
-<meta property="og:updated_time" content="2018-10-11T04:39:05.557Z">
+<meta property="og:updated_time" content="2018-10-11T04:43:34.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于新手购买域名和选择服务器的说明">
 <meta name="twitter:description" content="最近身边的好多小伙伴都购买了域名，但是不知道该怎么部署才能实现装逼效果，下面我就简单的写一点相关的说明和我遇到的一些坑。写的不好请见谅。">
@@ -464,7 +464,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k 字
+                  1.5k 字
                 </span>
               
 
@@ -480,7 +480,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4 分钟
+                  5 分钟
                 </span>
               
             </div>
@@ -534,14 +534,22 @@
 <div class="note primary no-icon"><p><strong>开始搭建博客</strong>：在本地安装HEXO，建议阅读一遍<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a>，当然不想看了，就看下面的步骤也行.</p></div>
 
 <ul>
-<li>安装前需要的必须组件：<strong>Git和Node.js</strong>。这两个都直接去官网下载安装就行了，这里就不写步骤了，毕竟网上有好多。而且只需要一直下一步就行了。</li>
-</ul>
-<p><strong>Node.js安装时一定要注意</strong><span id="inline-purple">Custom Setup这一步要选<code>Add to PATH</code>添加到环境变量</span></p>
-<ul>
-<li><strong>开始安装Hexo</strong>：</li>
+<li><p>安装前需要的必须组件：<strong>Git和Node.js</strong>。这两个都直接去官网下载安装就行了，这里就不写步骤了，毕竟网上有好多。而且只需要一直下一步就行了。</p>
+</li>
+<li><p><strong>Node.js安装时一定要注意</strong><span id="inline-purple">Custom Setup这一步要选<code>Add to PATH</code>添加到环境变量</span></p>
+</li>
+<li><p><strong>开始安装Hexo</strong>：</p>
+</li>
 </ul>
 <figure class="highlight python"><figcaption><span>所在目录：~/blog/</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span>
-</pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装hexo</span></span><br><span class="line">npm install hexo-cli g</span><br><span class="line"><span class="comment"># 初始化博客文件夹</span></span><br><span class="line">hexo init </span><br><span class="line"><span class="comment"># 安装hexo的扩展插件</span></span><br><span class="line">npm install</span><br><span class="line"><span class="comment"># 安装其它插件</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <h4 id="Nc主机">Nc主机的部署相关</h4>
 
 <ul>
