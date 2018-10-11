@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-10-11T00:55:56.947Z</updated>
+  <updated>2018-10-11T04:02:14.934Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="https://blog.52sifang.cn/2018/10/11/about-dn-server/"/>
     <id>https://blog.52sifang.cn/2018/10/11/about-dn-server/</id>
     <published>2018-10-11T00:31:01.000Z</published>
-    <updated>2018-10-11T00:55:56.947Z</updated>
+    <updated>2018-10-11T04:02:14.934Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;最近身边的好多小伙伴都购买了域名，但是不知道该怎么部署才能实现装逼效果，下面我就简单的写一点相关的说明。写的不好请见谅。&lt;/blockquote&gt; 
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;最近身边的好多小伙伴都购买了域名，但是不知道该怎么部署才能实现装逼效果，下面我就简单的写一点相关的说明和我遇到的一些坑。写的不好请见谅。&lt;/blockquote&gt; 
 
-&lt;p&gt;/&lt;em&gt;&lt;img src=&quot;https://&quot; alt=&quot;&quot; style=&quot;width:100%&quot;&gt;&lt;/em&gt;/&lt;/p&gt;
+&lt;!-- &lt;img src=&quot;https://&quot; alt=&quot;&quot; style=&quot;width:100%&quot; /&gt; --&gt;
     
     </summary>
     
