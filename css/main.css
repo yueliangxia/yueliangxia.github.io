@@ -2040,7 +2040,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #91ff2d;
+  background: #edd6c3;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2993,7 +2993,9 @@ hr {
   display: none;
 }
 .posts-expand {
-  padding-top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .posts-expand .post-title,
 .posts-expand .post-meta {
@@ -3390,19 +3392,18 @@ a:hover {
   font-weight: bold;
 }
 .sidebar a {
-  color: #07b39b;
+  color: #fff;
   border-bottom: none;
 }
 .sidebar a:hover {
   color: #07b39b;
 }
 .site-description {
-  letter-spacing: 5px;
   font-size: 15px;
   font-weight: bold;
   margin-top: 15px;
   margin-left: 13px;
-  color: #f37055;
+  color: #b8f1cc;
 }
 #days {
   display: block;
@@ -3525,18 +3526,18 @@ h2.about-title {
 .sidebar-nav li {
   font-size: 15px;
   font-weight: bold;
-  color: #07b39b;
+  color: #b8f1ed;
 }
 .sidebar-nav li:hover {
   color: #a166ab;
 }
 .sidebar-nav .sidebar-nav-active {
-  color: #07b39b;
-  border-bottom-color: #a166ab;
+  color: #b8f1ed;
+  border-bottom-color: #fd7d36;
   border-bottom-width: 1.5px;
 }
 .sidebar-nav .sidebar-nav-active:hover {
-  color: #07b39b;
+  color: #b8f1ed;
 }
 ::selection {
   background-color: #b9e86a;
@@ -3551,7 +3552,7 @@ h2.about-title {
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-color: #ccc;
+  background-color: #10ffc7;
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color: #f79533;
@@ -3587,6 +3588,16 @@ span#inline-toc {
 img.img-topic {
   width: 100%;
 }
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: auto;
+  width: 100%;
+  min-height: 50px;
+}
+.main {
+  padding-bottom: 0;
+}
 @media (max-width: 1023px) {
   .container {
     background-color: rgba(0,0,0,0);
@@ -3602,11 +3613,13 @@ img.img-topic {
 }
 @media (max-width: 767px) {
   .main {
-    padding-bottom: 120px;
+    padding-bottom: 0;
   }
   .posts-expand {
-    margin: 0px;
-    padding-top: 10px;
+    margin: 0;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
   .posts-expand .post-title {
     font-size: 22px;
