@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://wx1.sinaimg.cn/large/0068ZTOjly1fw43ccbednj30qw0apabj.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/0068ZTOjly1fw43dn74i1j30nj0dr75j.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0068ZTOjly1fw445x370bj30ni04r3ys.jpg">
-<meta property="og:updated_time" content="2018-10-11T07:24:32.741Z">
+<meta property="og:updated_time" content="2018-10-11T08:01:41.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于新手购买域名和选择服务器的说明">
 <meta name="twitter:description" content="最近身边的好多小伙伴都购买了域名，但是不知道该怎么部署才能实现装逼效果，下面我就简单的写一点相关的说明和我遇到的一些坑。写的不好请见谅。">
@@ -221,7 +221,7 @@
                 </span>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 <span title="字数统计">
-                  2.2k 字
+                  2.5k 字
                 </span>
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
@@ -229,7 +229,7 @@
                 </span>
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 <span title="阅读时长">
-                  7 分钟
+                  8 分钟
                 </span>
             </div>
         </div>
@@ -316,6 +316,20 @@
 <p><img src="https://wx3.sinaimg.cn/large/0068ZTOjly1fw4b3qryxqj30ki0gf3zf.jpg" alt="image"></p>
 <p><span id="inline-red">特别注意：</span> 关于部署完成之后服务器和域名跳转问题。</p>
 <div class="note success no-icon">需要在source文件夹里新建一个名为<strong>CNAME</strong>的文件，注意这里没有.txt后缀，什么后缀都没有，里面只需要写上自己的域名就行了，另存为utf-8格式。重新hexo d一下吧！</div>
+<h4>Hexo 优化相关</h4>
+<h5>关于主题的更换：</h5>
+<div class="note info no-icon">首先当然说一下自带的主题。。来看一下自带的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题官网</a>，不翻墙可能有点慢，不过也能看。这里面带有几乎所有支持的主题，点击图片可以查看预览。如果想要应用的话，就需要点击主题的名字，进入github的界面。因为这些主题都是存放在github的</div>
+<p><strong>更换主题的命令</strong><br><figure class="highlight python"><figcaption><span>所在目录：~/blog/</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line">git clone github提供的下载地址 themes/主题的名字</span><br><span class="line"><span class="comment"># 下面是其中一个的栗子</span></span><br><span class="line">git clone https://github.com/probberechts/hexo-theme-cactus.git themes/cactus</span><br></pre></td></tr></table></figure></p>
+<p><strong>然后更改站点配置文件</strong><br><figure class="highlight python"><figcaption><span>文件位置：~/blog/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line">省略。。。</span><br><span class="line"></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="comment"># 把下面的主题名字改成自己想用的</span></span><br><span class="line">theme: 主题的名字</span><br></pre></td></tr></table></figure></p>
+<div class="note primary">这里推荐几个不错的主题：<br>1.我当前在用的<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next</a><br>2.<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a><br>3.<a href="https://github.com/yscoder/hexo-theme-indigo/tree/card" target="_blank" rel="noopener">indigo</a><br>4.<a href="https://github.com/probberechts/hexo-theme-cactus" target="_blank" rel="noopener">cactus</a>,选择主题就说到这里，就靠自己的喜好了。</div>
 <h4 id="Nc主机">Nc主机的部署相关</h4>
 <div class="note info"><p>这个主机嘛，提供的有免费虚拟机和的一个免费的大小还凑合数据库。说的是距离近，但是不花钱，访问速度也就比github提供的稍微快一点点。不明显！</p></div>
 <ul>
@@ -357,6 +371,7 @@
 </ul>
 <hr>
 <h3 id="域名绑定相关">域名绑定相关</h3>
+<p>pass</p>
 <a class="btn" href="https://www.baidu.com" target="_blank" rel="noopener"><i class="fa fa-download fa-lg fa-fw"></i>点击下载百度</a>
 <hr>
     </div>
@@ -531,7 +546,7 @@ show_date_time();
       <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#必读-写在前面"><span class="nav-text">必读 写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首先当然是考虑先买一个域名啦。服务器什么的慌什么，也跑不掉。"><span class="nav-text">首先当然是考虑先买一个域名啦。服务器什么的慌什么，也跑不掉。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器提供商和博客框架的选择"><span class="nav-text">服务器提供商和博客框架的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GitHub-Pages"><span class="nav-text">GitHub Pages的部署相关</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">开始安装Hexo：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">本地部署好了，当然要开始绑定自己的域名啦。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nc主机"><span class="nav-text">Nc主机的部署相关</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名绑定相关"><span class="nav-text">域名绑定相关</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#必读-写在前面"><span class="nav-number">1.</span> <span class="nav-text">必读 写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首先当然是考虑先买一个域名啦。服务器什么的慌什么，也跑不掉。"><span class="nav-number">2.</span> <span class="nav-text">首先当然是考虑先买一个域名啦。服务器什么的慌什么，也跑不掉。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器提供商和博客框架的选择"><span class="nav-number">3.</span> <span class="nav-text">服务器提供商和博客框架的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GitHub-Pages"><span class="nav-number">3.1.</span> <span class="nav-text">GitHub Pages的部署相关</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.1.</span> <span class="nav-text">开始安装Hexo：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.2.</span> <span class="nav-text">本地部署好了，当然要开始绑定自己的域名啦。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">Hexo 优化相关</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.1.</span> <span class="nav-text">关于主题的更换：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nc主机"><span class="nav-number">3.3.</span> <span class="nav-text">Nc主机的部署相关</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名绑定相关"><span class="nav-number">4.</span> <span class="nav-text">域名绑定相关</span></a></li></ol></div>
           </div>
         </section>
       <!--/noindex-->
