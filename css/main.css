@@ -2040,7 +2040,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #396b54;
+  background: #4d831f;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3160,6 +3160,33 @@ span#inline-toc {
   padding: 0.05em 0.4em;
   margin: 2px 5px 2px 0px;
   line-height: 1.5;
+}
+span#inline-blue,
+span#inline-green,
+span#inline-purple,
+span#inline-yellow {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 90%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  vertical-align: baseline;
+  border-radius: 0;
+  white-space: nowrap;
+}
+span#inline-yellow {
+  background-color: #f0ad4e;
+}
+span#inline-green {
+  background-color: #5cb85c;
+}
+span#inline-blue {
+  background-color: #2780e3;
+}
+span#inline-purple {
+  background-color: #9954bb;
 }
 .header-inner {
   padding-top: 0px;
