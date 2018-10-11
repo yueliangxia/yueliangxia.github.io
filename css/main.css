@@ -2040,7 +2040,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f7e5ff;
+  background: #91ff2d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3214,8 +3214,8 @@ span#inline-purple {
   margin-top: 30px;
   margin-bottom: 30px;
   padding: 15px;
-  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.75);
-  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.75);
+  -webkit-box-shadow: 0 0 5px rgba(96,210,37,0.75);
+  -moz-box-shadow: 0 0 5px rgba(93,202,102,0.75);
 }
 .posts-expand .post-title {
   font-size: 26px;
