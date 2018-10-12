@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-10-11T08:40:49.877Z</updated>
+  <updated>2018-10-12T11:22:14.851Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -18,16 +18,14 @@
   
   <entry>
     <title>关于新手购买域名和选择服务器的说明</title>
-    <link href="https://blog.52sifang.cn/2018/10/11/about-dn-server/"/>
-    <id>https://blog.52sifang.cn/2018/10/11/about-dn-server/</id>
+    <link href="https://blog.52sifang.cn/article/21811/"/>
+    <id>https://blog.52sifang.cn/article/21811/</id>
     <published>2018-10-11T00:31:01.000Z</published>
-    <updated>2018-10-11T08:40:49.877Z</updated>
+    <updated>2018-10-12T11:22:14.851Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;最近身边的好多小伙伴都购买了域名，但是不知道该怎么部署才能实现装逼效果，下面我就简单的写一点相关的说明和我遇到的一些坑。写的不好请见谅。&lt;/blockquote&gt; 
-
-&lt;!-- &lt;img src=&quot;https://&quot; alt=&quot;&quot; style=&quot;width:100%&quot; /&gt; --&gt;
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;最近身边的好多小伙伴都购买了域名，但是不知道该怎么部署才能实现装逼效果，下面我就简单的写一点相关的说明和我遇到的一些坑。写的不好请见谅。&lt;/blockquote&gt;
     
     </summary>
     
@@ -40,16 +38,14 @@
   
   <entry>
     <title>天眼查的字体加密</title>
-    <link href="https://blog.52sifang.cn/2018/10/09/tianyancha/"/>
-    <id>https://blog.52sifang.cn/2018/10/09/tianyancha/</id>
+    <link href="https://blog.52sifang.cn/article/8131/"/>
+    <id>https://blog.52sifang.cn/article/8131/</id>
     <published>2018-10-09T11:27:54.000Z</published>
-    <updated>2018-10-11T13:22:46.897Z</updated>
+    <updated>2018-10-12T11:22:14.869Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;关于一些网站的字体加密方面，目前发现的也就只有两种：一种是起点网的那个总字数那种的给的是是禁止的数据，转换成十六进制之后再在woff文件转换成的xml文件中寻找对应的关系。另一种就是类似于天眼查的，获取到的源码是字体的位置信息，然后需要根据位置信息取出对应的数据。&lt;/blockquote&gt; 
-
-&lt;!-- &lt;img src=&quot;https://&quot; alt=&quot;&quot; style=&quot;width:100%&quot; /&gt; --&gt;
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;关于一些网站的字体加密方面，目前发现的也就只有两种：一种是起点网的那个总字数那种的给的是是禁止的数据，转换成十六进制之后再在woff文件转换成的xml文件中寻找对应的关系。另一种就是类似于天眼查的，获取到的源码是字体的位置信息，然后需要根据位置信息取出对应的数据。&lt;/blockquote&gt;
     
     </summary>
     
@@ -58,16 +54,14 @@
   
   <entry>
     <title>Django的学习记录</title>
-    <link href="https://blog.52sifang.cn/2018/09/28/django-study/"/>
-    <id>https://blog.52sifang.cn/2018/09/28/django-study/</id>
+    <link href="https://blog.52sifang.cn/article/3399/"/>
+    <id>https://blog.52sifang.cn/article/3399/</id>
     <published>2018-09-28T13:04:13.000Z</published>
-    <updated>2018-10-09T13:08:27.049Z</updated>
+    <updated>2018-10-12T11:22:14.863Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;Django的一些基础知识，例如Django框架的基本结构&lt;/blockquote&gt; 
-
-&lt;!-- &lt;img src=&quot;https://&quot; alt=&quot;&quot; style=&quot;width:100%&quot; /&gt; --&gt;
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;Django的一些基础知识，例如Django框架的基本结构&lt;/blockquote&gt;
     
     </summary>
     
@@ -80,17 +74,14 @@
   
   <entry>
     <title>scrapy部署爬虫项目</title>
-    <link href="https://blog.52sifang.cn/2018/09/27/scrapy-overview/"/>
-    <id>https://blog.52sifang.cn/2018/09/27/scrapy-overview/</id>
+    <link href="https://blog.52sifang.cn/article/38441/"/>
+    <id>https://blog.52sifang.cn/article/38441/</id>
     <published>2018-09-27T06:16:24.000Z</published>
-    <updated>2018-09-27T13:40:20.381Z</updated>
+    <updated>2018-10-12T11:22:14.867Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote size=&quot;5&quot; color=&quot;#66ccff&quot; class=&quot;blockquote-center&quot;&gt;功能：它就相当于是一个服务器，用于将自己本地的爬虫代码，打包上传到服务器上，让这个爬虫在服务器上运行，可以实现对爬虫的远程管理。(远程启动爬虫，远程关闭爬虫，远程查看爬虫的一些日志。)&lt;/blockquote&gt; 
-
-
-&lt;!-- &lt;img src=&quot;https://&quot; alt=&quot;&quot; style=&quot;width:100%&quot; /&gt; --&gt;
+      &lt;blockquote size=&quot;5&quot; color=&quot;#66ccff&quot; class=&quot;blockquote-center&quot;&gt;功能：它就相当于是一个服务器，用于将自己本地的爬虫代码，打包上传到服务器上，让这个爬虫在服务器上运行，可以实现对爬虫的远程管理。(远程启动爬虫，远程关闭爬虫，远程查看爬虫的一些日志。)&lt;/blockquote&gt;
     
     </summary>
     
@@ -103,15 +94,14 @@
   
   <entry>
     <title>分布式爬虫</title>
-    <link href="https://blog.52sifang.cn/2018/09/25/scrapy-redis/"/>
-    <id>https://blog.52sifang.cn/2018/09/25/scrapy-redis/</id>
+    <link href="https://blog.52sifang.cn/article/19872/"/>
+    <id>https://blog.52sifang.cn/article/19872/</id>
     <published>2018-09-25T08:03:00.000Z</published>
-    <updated>2018-09-28T02:10:10.084Z</updated>
+    <updated>2018-10-12T11:22:14.874Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1-概念&quot;&gt;&lt;a href=&quot;#1-概念&quot; class=&quot;headerlink&quot; title=&quot;1. 概念&quot;&gt;&lt;/a&gt;1. 概念&lt;/h3&gt;&lt;p&gt;将同一个爬虫程序放在多台电脑上(或者同一个电脑中的多个虚拟机环境)，并且在多台电脑上同时启动这个爬虫。异态电脑运行一个爬虫程序成为单机爬虫。&lt;/p&gt;
-&lt;hr&gt;
+      &lt;h3 id=&quot;1-概念&quot;&gt;&lt;a href=&quot;#1-概念&quot; class=&quot;headerlink&quot; title=&quot;1. 概念&quot;&gt;&lt;/a&gt;1. 概念&lt;/h3&gt;&lt;p&gt;将同一个爬虫程序放在多台电脑上(或者同一个电脑中的多个虚拟机环境)，并且在多台电脑上同时启动这个爬虫。异态电脑运行一个爬虫程序成为单机爬虫。&lt;/p&gt;&lt;hr&gt;
     
     </summary>
     
@@ -124,16 +114,14 @@
   
   <entry>
     <title>youxinSpider</title>
-    <link href="https://blog.52sifang.cn/2018/09/20/youxinspider-1/"/>
-    <id>https://blog.52sifang.cn/2018/09/20/youxinspider-1/</id>
+    <link href="https://blog.52sifang.cn/article/21872/"/>
+    <id>https://blog.52sifang.cn/article/21872/</id>
     <published>2018-09-20T08:59:56.000Z</published>
-    <updated>2018-09-21T02:24:20.031Z</updated>
+    <updated>2018-10-12T11:22:14.873Z</updated>
     
     <summary type="html">
     
-      &lt;p class=&quot;description&quot;&gt;关于某信二手车的验证码问题。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://wx1.sinaimg.cn/large/0068ZTOjly1fvg47kq4bcj30ec092t96.jpg&quot; alt=&quot;&quot; style=&quot;width:100%&quot;&gt;&lt;/p&gt;
+      &lt;p class=&quot;description&quot;&gt;关于某信二手车的验证码问题。&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;https://wx1.sinaimg.cn/large/0068ZTOjly1fvg47kq4bcj30ec092t96.jpg&quot; alt=&quot;&quot; style=&quot;width:100%&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -146,10 +134,10 @@
   
   <entry>
     <title>关于此博客图床的使用</title>
-    <link href="https://blog.52sifang.cn/2018/09/18/graph-bed/"/>
-    <id>https://blog.52sifang.cn/2018/09/18/graph-bed/</id>
+    <link href="https://blog.52sifang.cn/article/28415/"/>
+    <id>https://blog.52sifang.cn/article/28415/</id>
     <published>2018-09-18T12:17:12.000Z</published>
-    <updated>2018-09-18T13:29:50.460Z</updated>
+    <updated>2018-10-12T11:22:14.864Z</updated>
     
     <summary type="html">
     
@@ -164,10 +152,10 @@
   
   <entry>
     <title>新浪微博爬虫</title>
-    <link href="https://blog.52sifang.cn/2018/09/14/WeiBoSpider/"/>
-    <id>https://blog.52sifang.cn/2018/09/14/WeiBoSpider/</id>
+    <link href="https://blog.52sifang.cn/article/23444/"/>
+    <id>https://blog.52sifang.cn/article/23444/</id>
     <published>2018-09-14T00:59:59.000Z</published>
-    <updated>2018-09-18T13:33:37.166Z</updated>
+    <updated>2018-10-12T11:22:14.862Z</updated>
     
     <summary type="html">
     
@@ -184,28 +172,14 @@
   
   <entry>
     <title>zhihu的一些评论</title>
-    <link href="https://blog.52sifang.cn/2018/09/12/proxy-pool/"/>
-    <id>https://blog.52sifang.cn/2018/09/12/proxy-pool/</id>
+    <link href="https://blog.52sifang.cn/article/7459/"/>
+    <id>https://blog.52sifang.cn/article/7459/</id>
     <published>2018-09-12T06:13:59.000Z</published>
-    <updated>2018-09-17T12:31:34.669Z</updated>
+    <updated>2018-10-12T11:22:14.868Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP:&quot;&gt;&lt;/a&gt;代理IP:&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的.&lt;/li&gt;
-&lt;li&gt;2.收费的代理IP,讯代理.&lt;/li&gt;
-&lt;li&gt;3.爬取国外的网站,VPN代理服务器.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;proxy-pool&quot;&gt;&lt;a href=&quot;#proxy-pool&quot; class=&quot;headerlink&quot; title=&quot;proxy_pool:&quot;&gt;&lt;/a&gt;proxy_pool:&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;@项目地址：&lt;a href=&quot;https://github.com/jhao104/proxy_pool.git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/jhao104/proxy_pool.git&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1.它将国内的代理IP网站都进行了爬取;&lt;/li&gt;
-&lt;li&gt;2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数据库redis中;&lt;/li&gt;
-&lt;li&gt;3.会定期将数据库中的代理IP拿出来检测,失效的IP从数据库中删除。&lt;/li&gt;
-&lt;li&gt;4.支持扩展&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
+      &lt;h3 id=&quot;代理IP&quot;&gt;&lt;a href=&quot;#代理IP&quot; class=&quot;headerlink&quot; title=&quot;代理IP:&quot;&gt;&lt;/a&gt;代理IP:&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;1.免费的代理IP,可用IP少,时效性较短,大部分的代理IP可能在访问网站都是失效的.&lt;/li&gt;&lt;li&gt;2.收费的代理IP,讯代理.&lt;/li&gt;&lt;li&gt;3.爬取国外的网站,VPN代理服务器.&lt;/li&gt;&lt;/ul&gt;&lt;h3 id=&quot;proxy-pool&quot;&gt;&lt;a href=&quot;#proxy-pool&quot; class=&quot;headerlink&quot; title=&quot;proxy_pool:&quot;&gt;&lt;/a&gt;proxy_pool:&lt;/h3&gt;&lt;blockquote&gt;&lt;p&gt;@项目地址：&lt;a href=&quot;https://github.com/jhao104/proxy_pool.git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/jhao104/proxy_pool.git&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;1.它将国内的代理IP网站都进行了爬取;&lt;/li&gt;&lt;li&gt;2.代理IP爬取完毕之后,会进行检测,可用的IP会保存到数据库redis中;&lt;/li&gt;&lt;li&gt;3.会定期将数据库中的代理IP拿出来检测,失效的IP从数据库中删除。&lt;/li&gt;&lt;li&gt;4.支持扩展&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;&lt;hr&gt;
     
     </summary>
     
@@ -218,10 +192,10 @@
   
   <entry>
     <title>用twisted异步写入</title>
-    <link href="https://blog.52sifang.cn/2018/09/11/use_twisted/"/>
-    <id>https://blog.52sifang.cn/2018/09/11/use_twisted/</id>
+    <link href="https://blog.52sifang.cn/article/16883/"/>
+    <id>https://blog.52sifang.cn/article/16883/</id>
     <published>2018-09-11T11:43:00.000Z</published>
-    <updated>2018-09-11T14:51:18.406Z</updated>
+    <updated>2018-10-12T11:22:14.871Z</updated>
     
     <summary type="html">
     
@@ -238,10 +212,10 @@
   
   <entry>
     <title>关于51job的爬虫说明</title>
-    <link href="https://blog.52sifang.cn/2018/09/10/test_pic/"/>
-    <id>https://blog.52sifang.cn/2018/09/10/test_pic/</id>
+    <link href="https://blog.52sifang.cn/article/24762/"/>
+    <id>https://blog.52sifang.cn/article/24762/</id>
     <published>2018-09-10T09:51:00.000Z</published>
-    <updated>2018-09-19T08:16:29.011Z</updated>
+    <updated>2018-10-12T11:22:14.870Z</updated>
     
     <summary type="html">
     
@@ -258,10 +232,10 @@
   
   <entry>
     <title>xieyuying</title>
-    <link href="https://blog.52sifang.cn/2018/09/07/xieyuying/"/>
-    <id>https://blog.52sifang.cn/2018/09/07/xieyuying/</id>
+    <link href="https://blog.52sifang.cn/article/61139/"/>
+    <id>https://blog.52sifang.cn/article/61139/</id>
     <published>2018-09-07T12:46:08.000Z</published>
-    <updated>2018-09-07T14:02:19.915Z</updated>
+    <updated>2018-10-12T11:22:14.872Z</updated>
     
     <summary type="html">
     
@@ -278,17 +252,14 @@
   
   <entry>
     <title>计算机开机</title>
-    <link href="https://blog.52sifang.cn/2018/09/06/capture_start/"/>
-    <id>https://blog.52sifang.cn/2018/09/06/capture_start/</id>
+    <link href="https://blog.52sifang.cn/article/33956/"/>
+    <id>https://blog.52sifang.cn/article/33956/</id>
     <published>2018-09-06T06:19:16.000Z</published>
-    <updated>2018-09-19T08:16:57.126Z</updated>
+    <updated>2018-10-12T11:22:14.866Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;计算机启动过程&quot;&gt;&lt;a href=&quot;#计算机启动过程&quot; class=&quot;headerlink&quot; title=&quot;计算机启动过程&quot;&gt;&lt;/a&gt;计算机启动过程&lt;/h3&gt;&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;BIOS简介:&lt;br&gt;    基本的输入输出系统,连接底层的硬件和系统&lt;/p&gt;
-&lt;/blockquote&gt;
+      &lt;h3 id=&quot;计算机启动过程&quot;&gt;&lt;a href=&quot;#计算机启动过程&quot; class=&quot;headerlink&quot; title=&quot;计算机启动过程&quot;&gt;&lt;/a&gt;计算机启动过程&lt;/h3&gt;&lt;hr&gt;&lt;blockquote&gt;&lt;p&gt;BIOS简介:&lt;br&gt;基本的输入输出系统,连接底层的硬件和系统&lt;/p&gt;&lt;/blockquote&gt;
     
     </summary>
     

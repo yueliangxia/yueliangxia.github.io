@@ -10,7 +10,7 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
-Disallow: /2018/
+Disallow: /article/
 
 User-agent: Baiduspider
 Allow: /archives/
@@ -23,7 +23,7 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
-Disallow: /2018/
+Disallow: /article/
 
 
 User-agent: *

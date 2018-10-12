@@ -1,0 +1,363 @@
+<!DOCTYPE html><html class="theme-next mist use-motion" lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4"><link rel="icon" type="image/png" sizes="32x32" href="https://www.easyicon.net/download/png/1159888/32/?v=5.1.4"><link rel="icon" type="image/png" sizes="16x16" href="https://www.easyicon.net/download/png/1159888/16/?v=5.1.4"><link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222"><meta name="keywords" content="Django,"><link rel="alternate" href="/atom.xml" title="司金辉的个人博客" type="application/atom+xml"><meta name="description" content="Django的一些基础知识，例如Django框架的基本结构"><meta name="keywords" content="Django"><meta property="og:type" content="article"><meta property="og:title" content="Django的学习记录"><meta property="og:url" content="https://blog.52sifang.cn/article/3399/index.html"><meta property="og:site_name" content="司金辉的个人博客"><meta property="og:description" content="Django的一些基础知识，例如Django框架的基本结构"><meta property="og:locale" content="zh-Hans"><meta property="og:image" content="https://wx2.sinaimg.cn/large/0068ZTOjly1fvpl88hpgaj30k8092409.jpg"><meta property="og:updated_time" content="2018-10-12T11:22:14.863Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Django的学习记录"><meta name="twitter:description" content="Django的一些基础知识，例如Django框架的基本结构"><meta name="twitter:image" content="https://wx2.sinaimg.cn/large/0068ZTOjly1fvpl88hpgaj30k8092409.jpg"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Mist",version:"5.1.4",sidebar:{position:"right",display:"hide",offset:12,b2t:!1,scrollpercent:!0,onmobile:!0},fancybox:!0,tabs:!0,motion:{enable:!0,async:!0,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://blog.52sifang.cn/article/3399/"><title>Django的学习记录 | 司金辉的个人博客</title><script>!function(e,a,t,n,g,c,o){e.GoogleAnalyticsObject=g,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),o=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script",0,"ga"),ga("create","UA-125872081-1","auto"),ga("send","pageview")</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-right page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta custom-logo"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">司金辉的个人博客</span> <span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">我喝过最烈的酒，也放过不该放的手。从前不会回头，往后不会将就。W人生当苦无妨，良人当归即可。W世间文字八万个，唯有情字最杀人。</p></div><div class="site-nav-toggle"><button><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://blog.52sifang.cn/article/3399/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="小 司 机"><meta itemprop="description" content=""><meta itemprop="image" content="/images/icon.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="司金辉的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Django的学习记录</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-28T21:04:13+08:00">2018-09-28 </time></span><span class="post-category"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-folder-o"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/django/" itemprop="url" rel="index"><span itemprop="name">Django</span> </a></span></span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><a href="/article/3399/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/article/3399/" itemprop="commentCount"></span> </a></span><span class="post-meta-divider">|</span> <span class="page-pv"><i class="fa fa-file-o"></i> <span class="busuanzi-value" id="busuanzi_value_page_pv"></span> </span><span class="post-meta-divider">|</span> <span id="busuanzi_value_page_pv"></span>次阅读<div class="post-wordcount"><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i> </span><span class="post-meta-item-text">字数统计&#58;</span> <span title="字数统计">1.6k 字 </span><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span title="阅读时长">6 分钟</span></div></div></header><div class="post-body" itemprop="articleBody"><blockquote class="blockquote-center">Django的一些基础知识，例如Django框架的基本结构</blockquote><a id="more"></a><h3 id="1-为什么要选择Django"><a href="#1-为什么要选择Django" class="headerlink" title="(1)为什么要选择Django"></a>(1)为什么要选择Django</h3><h4 id="1-一站式的解决方案（ORM，Session，Admin等）"><a href="#1-一站式的解决方案（ORM，Session，Admin等）" class="headerlink" title="1.一站式的解决方案（ORM，Session，Admin等）"></a>1.一站式的解决方案（ORM，Session，Admin等）</h4><ul><li>可以做后台的定时任务，执行相关的任务；也可以做运维的管理后台，可以快速的搭建起一个后台的模型</li><li>Django的ORM是值得肯定的。因为有了它的ORM模型，我们可以方便的调用modles，直接去操作数据库，这样省去了手写SQL，或者SQL安全方面的一些问题</li></ul><h4 id="2-成熟的Python-Web框架（Django社区、丰富模块、稳定）"><a href="#2-成熟的Python-Web框架（Django社区、丰富模块、稳定）" class="headerlink" title="2.成熟的Python Web框架（Django社区、丰富模块、稳定）"></a>2.成熟的Python Web框架（Django社区、丰富模块、稳定）</h4><ul><li>相对于现在主流的其他几款Python Web框架而言，Django开源于05年，所以相对于现在来说比较早，就因为这一点，他有着丰富的Django社区。对于出现的问题可以快速的查找到、定位到相应的问题，找到解决方案，对于新手而言，也可以快速的上手，进行学习。</li><li>对于新手主要要去浏览Django的官方文档 <a href="https://www.djangoproject.com/" target="_blank" rel="noopener">官方文档：https://www.djangoproject.com/</a>，里面有Django的整套不同版本的文档，主要是英文的。但是文档里从基础一直讲到相当细节的内容。对于开发者而言是相当方便的。当然了要想看中文的可以去百度搜索Django中文文档。</li><li>模块：有了丰富的模块，可以开发出一些多样的内容，省去了需要自己从零开发代码和相关的一些底层的设计所需要的耗时。</li></ul><h3 id="2-Django工程结构和建立"><a href="#2-Django工程结构和建立" class="headerlink" title="(2)Django工程结构和建立"></a>(2)Django工程结构和建立</h3><ul><li>首先安装好Django后，通过Django-admin startproject 项目名 新建一个项目。</li><li>应用的建立(scanhosts：应用名)<br><code>Ubuntu: ./manage.py startapp scanhosts</code><br><code>Windows: python manage.py startapp scanhosts</code></li><li>下面是Django的目录的大体结构：<br><img src="https://wx2.sinaimg.cn/large/0068ZTOjly1fvpl88hpgaj30k8092409.jpg" alt="目录结构"></li></ul><blockquote><p>首先最外层的是容器项目名–注意：这个容器项目，没有什么实际的作用，修改容器项目的名字，并不会影响后面项目的运行。</p><blockquote><p><strong>manage.py</strong>：是一个命令行工具，会接收对于自己的Django工程的管理，比如Django工程的启动和关闭，或者进行相应的调试，或者是数据模型的迁移等等操作，都是用这个文件进行操作。–里面的内容很简单就是从终端接收对应的参数去执行对应的命令，所以起到的是一个Django的管理工具的作用。</p><blockquote><p><strong>setting.py</strong>：<del><a href="#settings">详细配置</a></del><strong>非常重要！</strong>这个里面有Django工程里面初始化的所有的相应的默认设置，也有后面我们要对Django工程对应的核心模块的一些设置都会集中在settings这个模块里面。Django初始化启动的服务也都是通过settings里面对应的配置去读取<br><strong>urls.py</strong>: 用于做Django工程的url路由的——我们要做自己的Web后台服务的时候，要生成自己的http的url，urls<br>.py就是url的路径进行对应的路由的。<br><strong>wsgi.py</strong>：这个是Django自己的一个与wsgi兼容Web服务的接口。不用做详细的了解<br><strong>其他文件夹</strong>：然后下面就是包含的应用项目，一个容器项目里面可以包含多个应用项目<br><strong>scanhosts</strong>：自己建立的应用<br><strong>models.py</strong>：<strong>重点了解</strong> Django的ORM模型建立model这个模型的一些配置都会放到这里面,默认里面只有下面这一行代码。这里是指导入了Django的模型，我们在定义数据库模型的时候，就要在这个文件里建立。<br></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="comment"># Create your models here.</span></span><br></pre></td></tr></table></figure><p></p></blockquote></blockquote></blockquote><blockquote><blockquote><blockquote><p><strong>migrations文件夹</strong>：默认是空的，这里是要做数据迁移用的。我们在models这个文件里进行对应的数据库模型的建立和更改以后，为了进行一个对应的迁移操作，会生成一些临时文件（一些临时的但是非常重要的中间文件）在migrations里面。会保存对应的文件的操作信息在这个文件夹里面。<br><strong>views.py</strong>： 是一个视图文件，同样也是在我们如果需要进行Web后台或者接口服务的话，对应相应的逻辑处理的逻辑层的代码书写都会放在这个文件里。</p></blockquote></blockquote></blockquote><h3 id="3-第一个DevOPS工程"><a href="#3-第一个DevOPS工程" class="headerlink" title="(3)第一个DevOPS工程"></a>(3)第一个DevOPS工程</h3><ul><li>启动Django工程的命令<br><code>python manage.py sunserver</code></li></ul><h4 id="settings">settings文件详细配置</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span></span><br><span class="line"><span class="comment"># BASE_DIR 是一个路径，工程启动的初始化基础路径，后面会调用基础路径去取其他的文件</span></span><br><span class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建的应用如果没有加到settings文件里是不会随着Django工程一起启动的。所以首先要做的就是把自己的项目添加到INSTALLED_APPS这个列表里，最好直接添加到最后面。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Application definition</span></span><br><span class="line"></span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">	<span class="comment"># 前面都是Django的一起默认的基础模块</span></span><br><span class="line">    <span class="string">'django.contrib.admin'</span>, <span class="comment"># 后台模块</span></span><br><span class="line">    <span class="string">'django.contrib.auth'</span>, <span class="comment"># 认证相关的模块</span></span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="string">'scanhosts'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据库的连接，也是需要配置的。默认使用的是sqlite的数据库</span></span><br><span class="line"><span class="comment"># Database</span></span><br><span class="line"><span class="comment"># https://docs.djangoproject.com/en/2.1/ref/settings/#databases</span></span><br><span class="line"></span><br><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.sqlite3'</span>,</span><br><span class="line">        <span class="string">'NAME'</span>: os.path.join(BASE_DIR, <span class="string">'db.sqlite3'</span>),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="4-Django日志logging模块"><a href="#4-Django日志logging模块" class="headerlink" title="(4)Django日志logging模块"></a>(4)Django日志logging模块</h3><h3 id="5-Django邮件发送"><a href="#5-Django邮件发送" class="headerlink" title="(5)Django邮件发送"></a>(5)Django邮件发送</h3><hr><p>极验验证：</p><ol><li><p>抓取极验参数:</p><p>任何一个网站，如果在登录时网站接入的极验的接口，那么该网站就可以使用极验验证码进行登录。此时，极验验证码API就会返回两个极验参数(gt和challenge)。这两个参数只跟极验验证码API相关，跟这个网站没有任何关系。</p><p>注意： 有的网站是直接调用极验官方提供的验证码接口，比如：极验的官方后台：<a href="https://auth.geetest.cn/api/" target="_blank" rel="noopener">https://auth.geetest.cn/api/</a> ；有的网站又对极验验证吗接口封装了一个API接，比如：魅族登录：<a href="https://login.flyme.cn/sec/geetest" target="_blank" rel="noopener">https://login.flyme.cn/sec/geetest</a>?</p></li><li><p>将获取的极验参数，提交给极验破解网站的识别接口。会得到新的返回值：</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    status: "ok",</span><br><span class="line">    challenge: "3d033f099597f5ae63e2e2c902301d183z",</span><br><span class="line">    validate: "8f6ebd56291ed6569ac40c1d74780985"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>将上述参数challenge换个validate，混合着网站自己的提交的参数向网站自己的url发生POST请求，即可。</p></li></ol></div><div>﻿</div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div></div><button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'><span>打赏</span></button><div id="QR" style="display:none"><div id="bitcoin" style="display:inline-block"><img id="bitcoin_qr" src="/images/alipay.png" alt="小 司 机 抱拳了,老铁!"><p>抱拳了,老铁!</p></div></div></div></div><footer class="post-footer"><div class="post-tags"><a href="/tags/django/" rel="tag"># Django</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/article/38441/" rel="next" title="scrapy部署爬虫项目"><i class="fa fa-chevron-left"></i> scrapy部署爬虫项目</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"><a href="/article/8131/" rel="prev" title="天眼查的字体加密">天眼查的字体加密 <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"><div id="SOHUCS"></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div id="sidebar-dimmer"></div><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap">站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="/images/icon.gif" alt="小 司 机"><p class="site-author-name" itemprop="name">小 司 机</p><p class="site-description motion-element" itemprop="description">某些人和事，哪怕是路边的风景，可是只要看一眼，自然会让人觉得很美好</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">13</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/index.html"><span class="site-state-item-count">6</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/index.html"><span class="site-state-item-count">9</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/loveyueliang" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a> </span><span class="links-of-author-item"><a href="mailto:sijinhui@vip.qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a> </span><span class="links-of-author-item"><a href="https://user.qzone.qq.com/1398548432/" target="_blank" title="Zone"><i class="fa fa-fw fa-qq"></i>Zone</a> </span><span class="links-of-author-item"><a href="https://www.jianshu.com/u/e8959c45ac38/" target="_blank" title="简书"><i class="fa fa-fw fa-heartbeat"></i>简书</a></span></div><div class="aplayer" data-id="2408833644" data-server="netease" data-type="playlist" data-autoplay="true"></div><div class="links-of-blogroll motion-element links-of-blogroll-inline"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-globe"></i> 神奇的链接</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"><a href="https://blog.gaoxiangxiang.cn" title="翔翔的Blog" target="_blank">翔翔的Blog</a></li><li class="links-of-blogroll-item"><a href="https://www.cnblogs.com/chensang/" title="我家阿坤" target="_blank">我家阿坤</a></li><li class="links-of-blogroll-item"><a href="https://www.zhangchonglei.com" title="张老板的个人网站" target="_blank">张老板的个人网站</a></li><li class="links-of-blogroll-item"><a href="https://www.oycyrl.com" title="臣老板" target="_blank">臣老板</a></li><li class="links-of-blogroll-item"><a href="http://blog.csdn.net/cf313995" title="飞飞" target="_blank">飞飞</a></li><li class="links-of-blogroll-item"><a href="https://blog.csdn.net/qq_40655579" title="小凤九" target="_blank">小凤九</a></li></ul><div id="days"></div><script>function show_date_time(){window.setTimeout("show_date_time()",1e3),BirthDay=new Date("09/16/2018 12:00:00"),today=new Date,timeold=today.getTime()-BirthDay.getTime(),sectimeold=timeold/1e3,secondsold=Math.floor(sectimeold),msPerDay=864e5,e_daysold=timeold/msPerDay,daysold=Math.floor(e_daysold),e_hrsold=24*(e_daysold-daysold),hrsold=setzero(Math.floor(e_hrsold)),e_minsold=60*(e_hrsold-hrsold),minsold=setzero(Math.floor(60*(e_hrsold-hrsold))),seconds=setzero(Math.floor(60*(e_minsold-minsold))),document.getElementById("days").innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒</br>"}function setzero(e){return e<10&&(e="0"+e),e}show_date_time()</script></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-为什么要选择Django"><span class="nav-number">1.</span> <span class="nav-text">(1)为什么要选择Django</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-一站式的解决方案（ORM，Session，Admin等）"><span class="nav-number">1.1.</span> <span class="nav-text">1.一站式的解决方案（ORM，Session，Admin等）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-成熟的Python-Web框架（Django社区、丰富模块、稳定）"><span class="nav-number">1.2.</span> <span class="nav-text">2.成熟的Python Web框架（Django社区、丰富模块、稳定）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Django工程结构和建立"><span class="nav-number">2.</span> <span class="nav-text">(2)Django工程结构和建立</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-第一个DevOPS工程"><span class="nav-number">3.</span> <span class="nav-text">(3)第一个DevOPS工程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#settings"><span class="nav-number">3.1.</span> <span class="nav-text">settings文件详细配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Django日志logging模块"><span class="nav-number">4.</span> <span class="nav-text">(4)Django日志logging模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Django邮件发送"><span class="nav-number">5.</span> <span class="nav-text">(5)Django邮件发送</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2018</span> <span class="with-love" id="heart"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">小 司 机</span><span class="post-meta-divider">|</span><div class="powered-by"><span>点击它 <a href="tencent://message/?uin=1398548432&Site=idc.ncshu.com&Menu=yes" style="font-weight:700">Q 我</a></span></div></div><div class="footer-custom">言念君子，温其如玉</div><div class="busuanzi-count"><script async src="https://cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user"></i> <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> </span><span class="site-pv"><i class="fa fa-eye"></i> <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script type="text/javascript">var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: '7duLXuyX6YnkxK11UGKnXUsc-gzGzoHsz',
+        appKey: 'fkmp7GcQqeePFN6vsPE4EAG9',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });</script><script type="text/javascript">// Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>;<script>$("body").backstretch(["https://wx1.sinaimg.cn/large/0068ZTOjly1fve0jynjxyj31hc0u0tff.jpg","https://wx3.sinaimg.cn/large/0068ZTOjly1fve0cln43rj31hc0u0tee.jpg","https://ws2.sinaimg.cn/large/0068ZTOjly1fve0cln43rj31hc0u0tee.jpg","https://ws2.sinaimg.cn/large/0068ZTOjly1fve0d8i8c8j31hc0u0ako.jpg","https://wx4.sinaimg.cn/large/0068ZTOjly1fve0dyerf7j31hc0u0n68.jpg","https://ws3.sinaimg.cn/large/0068ZTOjly1fve0eho69lj31hc0u0dr8.jpg","https://wx4.sinaimg.cn/large/0068ZTOjgy1fvdy2edu3sj319u0ukn5s.jpg","https://ws1.sinaimg.cn/large/0068ZTOjly1fve0f9n0jtj31hc0u0gso.jpg","https://ws4.sinaimg.cn/large/0068ZTOjly1fve0g3repkj31hc0u0dp2.jpg","https://wx2.sinaimg.cn/large/0068ZTOjly1fve0gwe7gkj31hc0u010n.jpg","https://ws4.sinaimg.cn/large/0068ZTOjly1fve0hirsuyj31hc0u0k1m.jpg","https://wx4.sinaimg.cn/large/0068ZTOjly1fve0hxsbu7j31hc0u044u.jpg","https://wx2.sinaimg.cn/large/0068ZTOjly1fve0i9f123j31hc0u0aow.jpg","https://wx3.sinaimg.cn/large/0068ZTOjly1fve0j8mvg2j31hc0u00vh.jpg"],{duration:6e4,fade:1500})</script><script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html><script type="text/javascript" src="/js/src/love.js"></script>
