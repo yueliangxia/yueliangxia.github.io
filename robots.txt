@@ -29,4 +29,4 @@ Disallow: /article/
 User-agent: *
 Disallow: /
 
-Sitemap: https://coding.52sifang.cn/sitemap.xml
+Sitemap: https://blog.52sifang.cn/sitemap.xml
