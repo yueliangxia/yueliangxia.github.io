@@ -1137,6 +1137,7 @@ pre .javascript .function {
 }
 .header {
   background: transparent;
+  opacity: 0.88;
 }
 .header-inner {
   position: relative;
@@ -2040,7 +2041,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #26ffeb;
+  background: #3cffd1;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2188,6 +2189,8 @@ pre .javascript .function {
 .footer {
   font-size: 14px;
   color: #999;
+  z-index: -1;
+  opacity: 0.8;
 }
 .footer img {
   border: none;
