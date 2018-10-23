@@ -2040,7 +2040,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6938d7;
+  background: #39ff16;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3322,7 +3322,7 @@ hr {
   font-weight: bold;
 }
 .post-nav-item a:hover {
-  color: #a166ab;
+  color: #5499ff;
   font-weight: bold;
 }
 .comments {
