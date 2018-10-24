@@ -2040,7 +2040,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7738ff;
+  background: #509ac4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3156,7 +3156,7 @@ hr {
   }
 }
 #instantclick {
-  display: none;
+  background: #00bfff;
 }
 body,
 body #hypercomments_widget *,
