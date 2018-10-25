@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-10-25T02:45:04.330Z</updated>
+  <updated>2018-10-25T12:39:12.640Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python基础中的一些重点</title>
+    <link href="https://blog.52sifang.cn/article/c7ae822f/"/>
+    <id>https://blog.52sifang.cn/article/c7ae822f/</id>
+    <published>2018-10-25T10:42:36.000Z</published>
+    <updated>2018-10-25T12:39:12.640Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;对于编程语言来说，在基础语法这一块Python还是相对简单的。不过也有很多知识容易记不清或者干脆直接忘记，所以在这里稍微总结一下。以后根据情况会向里面添加新的东西的。&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://blog.52sifang.cn/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://blog.52sifang.cn/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>鸡声茅店月，人迹板桥霜</title>
