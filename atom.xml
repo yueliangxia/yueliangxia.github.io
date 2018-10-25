@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.52sifang.cn/"/>
-  <updated>2018-10-23T08:13:56.292Z</updated>
+  <updated>2018-10-25T02:45:04.330Z</updated>
   <id>https://blog.52sifang.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.52sifang.cn/article/526b2bdf/"/>
     <id>https://blog.52sifang.cn/article/526b2bdf/</id>
     <published>2018-10-23T07:44:13.000Z</published>
-    <updated>2018-10-23T08:13:56.292Z</updated>
+    <updated>2018-10-25T02:45:04.330Z</updated>
     
     <summary type="html">
     
@@ -63,7 +63,7 @@
     <link href="https://blog.52sifang.cn/article/8131/"/>
     <id>https://blog.52sifang.cn/article/8131/</id>
     <published>2018-10-09T11:27:54.000Z</published>
-    <updated>2018-10-12T11:22:14.869Z</updated>
+    <updated>2018-10-25T02:43:52.231Z</updated>
     
     <summary type="html">
     
@@ -71,6 +71,8 @@
     
     </summary>
     
+    
+      <category term="字体" scheme="https://blog.52sifang.cn/tags/%E5%AD%97%E4%BD%93/"/>
     
   </entry>
   
@@ -99,7 +101,7 @@
     <link href="https://blog.52sifang.cn/article/38441/"/>
     <id>https://blog.52sifang.cn/article/38441/</id>
     <published>2018-09-27T06:16:24.000Z</published>
-    <updated>2018-10-12T11:22:14.867Z</updated>
+    <updated>2018-10-25T02:44:25.544Z</updated>
     
     <summary type="html">
     
@@ -110,7 +112,7 @@
       <category term="scrapy" scheme="https://blog.52sifang.cn/categories/scrapy/"/>
     
     
-      <category term="scrapy" scheme="https://blog.52sifang.cn/tags/scrapy/"/>
+      <category term="部署" scheme="https://blog.52sifang.cn/tags/%E9%83%A8%E7%BD%B2/"/>
     
   </entry>
   
@@ -119,7 +121,7 @@
     <link href="https://blog.52sifang.cn/article/19872/"/>
     <id>https://blog.52sifang.cn/article/19872/</id>
     <published>2018-09-25T08:03:00.000Z</published>
-    <updated>2018-10-12T11:22:14.874Z</updated>
+    <updated>2018-10-25T02:40:18.085Z</updated>
     
     <summary type="html">
     
@@ -130,7 +132,9 @@
       <category term="scrapy" scheme="https://blog.52sifang.cn/categories/scrapy/"/>
     
     
-      <category term="scrapy,redis" scheme="https://blog.52sifang.cn/tags/scrapy-redis/"/>
+      <category term="scrapy" scheme="https://blog.52sifang.cn/tags/scrapy/"/>
+    
+      <category term="redis" scheme="https://blog.52sifang.cn/tags/redis/"/>
     
   </entry>
   
@@ -139,7 +143,7 @@
     <link href="https://blog.52sifang.cn/article/21872/"/>
     <id>https://blog.52sifang.cn/article/21872/</id>
     <published>2018-09-20T08:59:56.000Z</published>
-    <updated>2018-10-12T11:22:14.873Z</updated>
+    <updated>2018-10-25T02:42:31.909Z</updated>
     
     <summary type="html">
     
@@ -150,7 +154,9 @@
       <category term="scrapy" scheme="https://blog.52sifang.cn/categories/scrapy/"/>
     
     
-      <category term="xin.com" scheme="https://blog.52sifang.cn/tags/xin-com/"/>
+      <category term="scrapy" scheme="https://blog.52sifang.cn/tags/scrapy/"/>
+    
+      <category term="Spider" scheme="https://blog.52sifang.cn/tags/spider/"/>
     
   </entry>
   
@@ -159,7 +165,7 @@
     <link href="https://blog.52sifang.cn/article/28415/"/>
     <id>https://blog.52sifang.cn/article/28415/</id>
     <published>2018-09-18T12:17:12.000Z</published>
-    <updated>2018-10-12T11:22:14.864Z</updated>
+    <updated>2018-10-25T02:44:44.884Z</updated>
     
     <summary type="html">
     
@@ -177,7 +183,7 @@
     <link href="https://blog.52sifang.cn/article/23444/"/>
     <id>https://blog.52sifang.cn/article/23444/</id>
     <published>2018-09-14T00:59:59.000Z</published>
-    <updated>2018-10-12T11:22:14.862Z</updated>
+    <updated>2018-10-25T02:43:13.701Z</updated>
     
     <summary type="html">
     
@@ -197,7 +203,7 @@
     <link href="https://blog.52sifang.cn/article/7459/"/>
     <id>https://blog.52sifang.cn/article/7459/</id>
     <published>2018-09-12T06:13:59.000Z</published>
-    <updated>2018-10-12T11:22:14.868Z</updated>
+    <updated>2018-10-25T02:44:35.136Z</updated>
     
     <summary type="html">
     
@@ -208,7 +214,7 @@
       <category term="爬虫" scheme="https://blog.52sifang.cn/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="scrapy" scheme="https://blog.52sifang.cn/tags/scrapy/"/>
+      <category term="代理" scheme="https://blog.52sifang.cn/tags/%E4%BB%A3%E7%90%86/"/>
     
   </entry>
   
@@ -217,7 +223,7 @@
     <link href="https://blog.52sifang.cn/article/16883/"/>
     <id>https://blog.52sifang.cn/article/16883/</id>
     <published>2018-09-11T11:43:00.000Z</published>
-    <updated>2018-10-12T11:22:14.871Z</updated>
+    <updated>2018-10-25T02:38:20.016Z</updated>
     
     <summary type="html">
     
@@ -228,7 +234,9 @@
       <category term="爬虫" scheme="https://blog.52sifang.cn/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="scrapy,mysql" scheme="https://blog.52sifang.cn/tags/scrapy-mysql/"/>
+      <category term="scrapy" scheme="https://blog.52sifang.cn/tags/scrapy/"/>
+    
+      <category term="mysql" scheme="https://blog.52sifang.cn/tags/mysql/"/>
     
   </entry>
   
