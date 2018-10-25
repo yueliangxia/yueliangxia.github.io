@@ -2040,7 +2040,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9affff;
+  background: #1421ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2849,7 +2849,7 @@ hr {
   height: 2px;
 }
 .main-inner {
-  margin-top: 80px;
+  margin-top: 40px;
 }
 .header {
   background: #f5f5f5;
@@ -3130,7 +3130,7 @@ hr {
   margin-bottom: 60px;
 }
 .pagination {
-  margin: 120px 0 0;
+  margin: 0;
   text-align: left;
 }
 @media (max-width: 767px) {
@@ -3140,7 +3140,7 @@ hr {
   }
 }
 .footer {
-  margin-top: 80px;
+  margin-top: 40px;
   padding: 10px 0;
   background: #f5f5f5;
   color: #666;

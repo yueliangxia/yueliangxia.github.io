@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.52sifang.cn/about/index.html</loc>
+    
+    <lastmod>2018-10-25T07:14:07.980Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.52sifang.cn/article/526b2bdf/</loc>
     
     <lastmod>2018-10-25T02:45:04.330Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>https://blog.52sifang.cn/article/19872/</loc>
     
     <lastmod>2018-10-25T02:40:18.085Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.52sifang.cn/about/index.html</loc>
-    
-    <lastmod>2018-10-18T01:48:27.002Z</lastmod>
     
   </url>
   
