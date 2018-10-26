@@ -2040,7 +2040,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #126bff;
+  background: #7d55ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3331,7 +3331,8 @@ hr {
 .comments {
   background-color: #fff;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.35);
-  margin: 80px 0px 40px 0px;
+  margin: 40px 0 0 0;
+  padding: 10px;
 }
 a {
   color: #00b970;
