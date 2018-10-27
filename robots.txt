@@ -11,10 +11,10 @@ Allow: /archives/
 Allow: /categories/
 Allow: /tags/ 
 Allow: /about/
-Disallow: /article/
+Allow: /article/
 
 
 User-agent: *
 Disallow: /
 
-Sitemap: https://blog.52sifang.cn/sitemap.xml
+Sitemap: https://blog.52sifang.cn/baidusitemap.xml
